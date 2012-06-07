@@ -1,0 +1,538 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Pub",
+				"Publisher"
+			],
+			[
+				"wh",
+				"wholeData"
+			],
+			[
+				"who",
+				"wholeData"
+			],
+			[
+				"Tk",
+				"Tkinter"
+			],
+			[
+				"zLa",
+				"zLat"
+			],
+			[
+				"dem",
+				"demo_comm"
+			],
+			[
+				"Com",
+				"community"
+			],
+			[
+				"cam",
+				"cameraFollow_tf"
+			],
+			[
+				"map",
+				"map_publisher"
+			],
+			[
+				"mesh_",
+				"mesh_use_embedded_materials"
+			],
+			[
+				"pub",
+				"publish"
+			],
+			[
+				"Easting",
+				"EastingStdDev"
+			],
+			[
+				"err",
+				"error_ellipse"
+			],
+			[
+				"stripe_",
+				"stripe_id"
+			],
+			[
+				"lane",
+				"lane_outer"
+			],
+			[
+				"str",
+				"stripe_outer"
+			],
+			[
+				"frame",
+				"frame_id"
+			],
+			[
+				"Nort",
+				"NorthingStdDev_temp"
+			],
+			[
+				"Northing",
+				"NorthingStdDev_temp"
+			],
+			[
+				"N",
+				"NorthingStdDev"
+			],
+			[
+				"Get",
+				"GetDouble"
+			],
+			[
+				"_",
+				"_deg2rad"
+			],
+			[
+				"z",
+				"zCourse"
+			],
+			[
+				"var",
+				"var_name"
+			],
+			[
+				"all",
+				"all_present"
+			],
+			[
+				"La",
+				"LatLong_holder"
+			],
+			[
+				"zLong",
+				"zLongStdDev"
+			],
+			[
+				"odo",
+				"odom_publisher"
+			],
+			[
+				"od",
+				"odom_msgs"
+			],
+			[
+				"Eas",
+				"EastingStdDev"
+			],
+			[
+				"North",
+				"Northing"
+			],
+			[
+				"EastingS",
+				"EastingStdDev_temp"
+			],
+			[
+				"Long",
+				"LongStdDev_temp"
+			],
+			[
+				"Lat",
+				"LatStdDev_temp"
+			],
+			[
+				"zLon",
+				"zLongStdDev"
+			],
+			[
+				"zLat",
+				"zLatStdDev"
+			],
+			[
+				"odom",
+				"odom_msgs"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"zL",
+				"zLong"
+			],
+			[
+				"new",
+				"new_LatLong"
+			],
+			[
+				"odm",
+				"odom_msgs_count"
+			],
+			[
+				"hand",
+				"handle_odom_var"
+			],
+			[
+				"zZ",
+				"zZStdDev"
+			],
+			[
+				"ro",
+				"ros_msg"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "#!/usr/bin/python\n\"\"\"\ncollection of functions for manipulating *.alogs\n\nAuthor: Robert Cofield\nCreated 6/6/2012\nPython v2.7.3\n\"\"\"\n\ndef pull_source(alogSrc, alogTgt, msgSrc):\n	\"\"\"\n	alogSrc: string of absolute filename\n	\"\"\"\n	import csv, os, ",
+			"file": "scripts/alog_manip.py",
+			"file_size": 221,
+			"file_write_time": 1339024386000000,
+			"settings":
+			{
+				"buffer_size": 239,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "README.txt",
+			"settings":
+			{
+				"buffer_size": 63,
+				"line_ending": "Unix",
+				"name": "Collection of programs/files for manipulating MOOS"
+			}
+		}
+	],
+	"build_system": "Packages/Python/Python.sublime-build",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/gavlab/alog_manip/pull_gNovatel.py",
+		"/media/8009-F73F/Untitled Document",
+		"/home/gavlab/rgc0003rosws/fhwa2_viz/fhwa2_MOOS_to_ROS/scripts/bridge.py",
+		"/home/gavlab/LFviz/Tkinter/output_log.txt",
+		"/home/gavlab/LFviz/Qt/LFviz/ui_LFviz.py",
+		"/home/gavlab/LFviz/Qt/LFviz/LFviz.py",
+		"/home/gavlab/LFviz/Qt/LFviz/ui_LFviz_Form.py",
+		"/home/gavlab/LFviz/Qt/LFviz/LFviz_Form.py",
+		"/home/gavlab/Desktop/ITM_1_1_2010_____02_38_48.ylog",
+		"/home/gavlab/Desktop/ITM_1_1_2010_____02_38_48.slog",
+		"/home/gavlab/LFviz/Qt/data/simALOG.alog",
+		"/home/gavlab/LFviz/Tkinter/gui.py",
+		"/home/gavlab/rgc0003rosws/fhwa2_viz/fhwa2_MOOS_to_ROS/scripts/randmcnally.py",
+		"/home/gavlab/Documents/simpleapp/untitled1.py",
+		"/home/gavlab/Documents/simpleapp/idkyet.py",
+		"/home/gavlab/Desktop/how william regenerated the file.txt",
+		"/home/gavlab/Documents/calculatorform/calculatorform/ui_calculatorform.py",
+		"/usr/lib/pyshared/python2.7/PySide/QtGui.so",
+		"/home/gavlab/Documents/calculatorform/calculatorform/calculatorform.py",
+		"/home/gavlab/LFviz/LFviz/LFviz.py",
+		"/home/gavlab/Documents/calculatorform/README.txt",
+		"/home/gavlab/Documents/qt_designer_calculatorform/calculatorform/examples_designer_calculatorform_ui_calculatorform.py",
+		"/home/gavlab/Documents/qt_designer_calculatorform/calculatorform/examples_designer_calculatorform_calculatorform.py",
+		"/home/gavlab/Documents/qt_designer_calculatorform/calculatorform/examples_designer_calculatorform_calculatorform.ui",
+		"/home/gavlab/Downloads/ashgti-elect6350-8303bf6/hw2/homework2_gui.py",
+		"/home/gavlab/rgc0003rosws/fhwa2_viz/fhwa2_MOOS_to_ROS/scripts/guiBridge.py",
+		"/home/gavlab/Documents/simpleapp/simpleapp.py",
+		"/home/gavlab/Documents/simpleapp/f2m.py",
+		"/home/gavlab/LFviz/gui.py",
+		"/etc/apt/sources.list",
+		"/home/gavlab/Documents/simpleapp/corey.py",
+		"/home/gavlab/Documents/simpleapp/py_demo_tk3.py",
+		"/home/gavlab/Documents/simpleapp/py_demo_tk2.py",
+		"/home/gavlab/Documents/simpleapp/py_demo_tk1.py",
+		"/home/gavlab/rgc0003rosws/MOOS-ros-pkg/MOOS/pyMOOS/src/pymoos/MOOSCommClient.py",
+		"/home/gavlab/Desktop/Example Mission Files/Detroit_1_1_2010_____00_16_18._moos",
+		"/home/gavlab/Desktop/Example Mission Files/tcpipMOOSBridgeqandd.txt",
+		"/home/gavlab/rgc0003rosws/fhwa2_viz/to_do.txt",
+		"/home/gavlab/rgc0003rosws/fhwa2_viz/fhwa2_MOOS_to_ROS/launch/run_everything.launch",
+		"/home/gavlab/rgc0003rosws/MOOS-ros-pkg/MOOS/MOOS/bin/mission_please_work.moos",
+		"/home/gavlab/rgc0003rosws/fhwa2_viz/fhwa2_MOOS_to_ROS/scripts/bridge_tf.py",
+		"/home/gavlab/rgc0003rosws/fhwa2_viz/fhwa2_MOOS_to_ROS/scripts/mailroom.py",
+		"/home/gavlab/rgc0003rosws/MOOS-ros-pkg/MOOS-ROS-Bridge/CMakeLists.txt",
+		"/home/gavlab/rgc0003rosws/fhwa2_viz/fhwa2_MOOS_to_ROS/scripts/gui_pMOOSBridge.cpp",
+		"/home/gavlab/rgc0003rosws/MOOS-ros-pkg/MOOS/MOOS/build/MOOS_svn/MOOSBin/scripts/RunMOOS",
+		"/home/gavlab/rgc0003rosws/MOOS-ros-pkg/README.md",
+		"/home/gavlab/rgc0003rosws/fhwa2_viz/fhwa2_MOOS_to_ROS/scripts/veh_pMOOSBridge.cpp",
+		"/home/gavlab/rgc0003rosws/MOOS-ros-pkg/MOOS/MOOS/build/MOOS_svn/Essentials/pMOOSBridge/MOOSBridge.cpp",
+		"/home/gavlab/rgc0003rosws/MOOS-ros-pkg/MOOS/pyMOOS/src/pymoos/__init__.py",
+		"/home/gavlab/rgc0003rosws/MOOS-ros-pkg/MOOS/pyMOOS/src/pymoos/CMOOSCommObject.so",
+		"/home/gavlab/rgc0003rosws/MOOS-ros-pkg/MOOS/pyMOOS/src/pymoos/CMOOSCommPkt.so",
+		"/home/gavlab/rgc0003rosws/MOOS-ros-pkg/MOOS/pyMOOS/src/pymoos/CMOOSMsg.so",
+		"/home/gavlab/rgc0003rosws/MOOS-ros-pkg/MOOS/pyMOOS/src/pymoos/XPCTcpSocket.so",
+		"/home/gavlab/Downloads/AdbeRdr9.5.1-1_i486linux_enu.bin",
+		"/home/gavlab/rgc0003rosws/fhwa2_viz/fhwa2_MOOS_to_ROS/scripts/survey.py",
+		"/home/gavlab/rgc0003rosws/fhwa2_viz/fhwa2_MOOS_to_ROS/scripts/LL2UTM.py",
+		"/opt/ros/fuerte/lib/python2.7/dist-packages/visualization_msgs/msg/_MarkerArray.py",
+		"/home/gavlab/Desktop/tf_stuff_from_william/transforms.xml",
+		"/home/gavlab/rgc0003rosws/fhwa2_viz/fhwa2_MOOS_to_ROS/scripts/survey_convert.py",
+		"/home/gavlab/rgc0003rosws/fhwa2_viz/fhwa2_MOOS_to_ROS/survey/stripe_inner_lat.txt",
+		"/home/gavlab/rgc0003rosws/fhwa2_viz/fhwa2_MOOS_to_ROS/scripts/bridge.pyc",
+		"/home/gavlab/Documents/FHWA2/ITM_1_1_2010_____02_38_48.alog",
+		"/home/gavlab/Desktop/tf_stuff_from_william/odom2tf.py",
+		"/home/gavlab/Desktop/tf_stuff_from_william/tf.launch",
+		"/home/gavlab/.cache/.fr-Fzme8I/Collada_Blender_0_3_159/bpymodules/colladaImEx/collada.py",
+		"/home/gavlab/.cache/.fr-CaQk4N/Collada_Blender_0_3_159/colladaExport14.py",
+		"/home/gavlab/Desktop/Untitled Document",
+		"/home/gavlab/rgc0003rosws/fhwa2_viz/misc_scripts/scripts/odom2tf.py",
+		"/home/gavlab/tf.launch",
+		"/home/gavlab/Documents/FHWA2/novatel_to_odom.py",
+		"/home/gavlab/Documents/FHWA2/error_ellipses.py",
+		"/home/gavlab/rgc0003rosws/fhwa2_viz/fhwa2_MOOS_to_ROS/scripts/novatel_to_odom.py",
+		"/home/gavlab/rgc0003rosws/MOOS-ros-pkg/MOOS/pyMOOS/build/pyMOOS_svn/src/pyMOOSMsg.cpp",
+		"/home/gavlab/rgc0003rosws/MOOS-ros-pkg/MOOS-ROS-Bridge/MOOS2ROS/scripts/moos2ros.py",
+		"/home/gavlab/Desktop/ITM_1_1_2010_____02_38_48.alog",
+		"/home/gavlab/Documents/FHWA2/LatLongUTMconversion.py",
+		"/home/gavlab/rgc0003rosws/MOOS-ros-pkg/MOOS/CMakeLists.txt",
+		"/home/gavlab/rgc0003rosws/MOOS-ros-pkg/MOOS/Makefile",
+		"/home/gavlab/rgc0003rosws/MOOS-ros-pkg/MOOS-ROS-Bridge/MOOS2ROS/src/moos2ros.cc",
+		"/home/gavlab/rgc0003rosws/MOOS-ros-pkg/MOOS/pyMOOS/Makefile",
+		"/home/gavlab/rgc0003rosws/fhwa2_viz/misc_scripts/launch/tf.launch",
+		"/home/gavlab/rgc0003rosws/MOOS-ros-pkg/MOOS/pyMOOS/build/pyMOOS_svn/CMakeLists.txt",
+		"/home/gavlab/rgc0003rosws/.rosinstall",
+		"/home/gavlab/Documents/FHWA2/ply Attempt/archived/ring1_xyzPlane.ply",
+		"/home/gavlab/Documents/FHWA2/obj Attempt/ring1_xyzPlane.obj",
+		"/home/gavlab/Documents/FHWA2/ply Attempt/PointPlanes/all_xyzPlane.ply",
+		"/home/gavlab/Documents/FHWA2/ply Attempt/PointPlanes/ring5_xyzPlane.ply",
+		"/home/gavlab/Documents/FHWA2/ply Attempt/PointPlanes/ring4_xyzPlane.ply",
+		"/home/gavlab/Documents/FHWA2/ply Attempt/PointPlanes/ring3_xyzPlane.ply",
+		"/home/gavlab/Documents/FHWA2/ply Attempt/PointPlanes/ring2_xyzPlane.ply",
+		"/home/gavlab/Documents/FHWA2/ply Attempt/PointPlanes/ring1_xyzPlane.ply",
+		"/home/gavlab/Documents/FHWA2/ply Attempt/test_tri.ply",
+		"/home/gavlab/Documents/FHWA2/ply Attempt/test_cube.ply",
+		"/home/gavlab/rgc0003rosws/MOOS-ros-pkg/MOOS-ROS-Bridge/MOOS_msgs/msg_gen/cpp/include/MOOS_msgs/MOOSDouble.h",
+		"/home/gavlab/rgc0003rosws/MOOS-ros-pkg/MOOS-ROS-Bridge/MOOS_msgs/src/MOOS_msgs/msg/_MOOSDouble.py",
+		"/home/gavlab/Documents/FHWA2/obj_io_modif232b.py",
+		"/home/gavlab/rgc0003rosws/MOOS-ros-pkg/MOOS-ROS-Bridge/MOOS_msgs/msg_gen/lisp/MOOSDouble.lisp",
+		"/home/gavlab/rgc0003rosws/MOOS-ros-pkg/MOOS-ROS-Bridge/MOOS_msgs/src/MOOS_msgs/__init__.py",
+		"/home/gavlab/rgc0003rosws/MOOS-ros-pkg/MOOS-ROS-Bridge/MOOS_msgs/src/MOOS_msgs/msg/__init__.py",
+		"/home/gavlab/rgc0003rosws/MOOS-ros-pkg/MOOS-ROS-Bridge/MOOS_msgs/msg/MOOSDouble.msg",
+		"/home/gavlab/rgc0003rosws/MOOS-ros-pkg/MOOS-ROS-Bridge/MOOS2ROS/include/MOOS2ROS/moos2ros.h",
+		"/home/gavlab/Documents/FHWA2/ring5_xyzPlane.obj",
+		"/home/gavlab/Documents/FHWA2/ring4_xyzPlane.obj",
+		"/home/gavlab/Documents/FHWA2/ring3_xyzPlane.obj",
+		"/home/gavlab/Documents/FHWA2/ring2_xyzPlane.obj",
+		"/home/gavlab/Documents/FHWA2/ring1_xyzPlane.obj",
+		"/home/gavlab/Desktop/track_survey_sorted_lla.mat"
+	],
+	"find":
+	{
+		"height": 37.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"survey",
+			"setmargin",
+			"course",
+			"@",
+			"S",
+			"uMS",
+			"protocol",
+			"ALOG2RVIZ",
+			"pub_at_position",
+			"survey",
+			"pub_at_position",
+			"create_NCAT_map",
+			"survey",
+			"LL2UTM.convert",
+			"convert",
+			"cameraFollow_tf",
+			"print",
+			"print\n\n\nprint",
+			"print",
+			"zLongStdDev",
+			"StdDev",
+			"gNovatel",
+			"print",
+			"course",
+			"base_footprint",
+			"onConnect",
+			"Odometry",
+			"rospy",
+			"odom2tf",
+			"NE_holder['time']",
+			"zLongStdDev",
+			"gNovatel",
+			"zLat",
+			"zlat",
+			"Novatel2Odom",
+			"zc",
+			"odometry_variables",
+			"zHorizSpeed",
+			"False",
+			"print_statement",
+			"novatel2odom",
+			"\"MOOS\"",
+			"MOOS",
+			"MOOS_MSGS_MESSAGE_MOOSDOUBLE_H",
+			"ros_msg",
+			"IsDouble"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"ll2utm",
+			"time",
+			"desired_variables"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "scripts/alog_manip.py",
+					"settings":
+					{
+						"buffer_size": 239,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								239,
+								239
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "README.txt",
+					"settings":
+					{
+						"buffer_size": 63,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								63,
+								63
+							]
+						],
+						"settings":
+						{
+							"auto_name": "Collection of programs/files for manipulating MOOS",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 182.0,
+	"status_bar_visible": true
+}
