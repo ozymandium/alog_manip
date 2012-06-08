@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% LOG FILE:       /MOOS/MOOSBin/Data/ITM_1_1_2010_____02_38_48/ITM_1_1_2010_____02_38_48.alog
+%% LOG FILE: /MOOS/MOOSBin/Data/ITM_1_1_2010_____02_38_48/ITM_1_1_2010_____02_38_48.alog
 %% FILE OPENED ON  Fri Jan 01 02:38:48 2010
 %% LOGSTART               1262335128.15
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -37,4 +37,4 @@
 4.306           zpsrSolAge           gNovatel        0.00000      
 4.306           zpsrDiffAge          gNovatel        0.00000      
 4.306           zpsrLatency          gNovatel        0.15000      
-4.306           zpsrBaseStationID    gNovatel         
+4.306           zpsrBaseStationID    gNovatel        40

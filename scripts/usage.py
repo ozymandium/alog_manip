@@ -2,15 +2,20 @@
 
 """
 usage of alog_manip utilities
+
+Created 6/6/2012, by Robert Cofield
 """
 
+#################################
+### pulling out gNovatel data ###
+#################################
 
-import os
-print
+import os, alog_manip
 os.chdir('/home/gavlab/alog_manip/scripts') # where this module currently is
-from alog_manip import *
 alogSrc = '/home/gavlab/alog_manip/alogs/short.alog'
-alogTgt = None
-gDes = 'gNovatel'
+alogTgt = '/home/gavlab/alog_manip/alogs/output.alog'
+desStr = 'gNovatel'
+alog_manip.pullByStr2new(alogSrc, alogTgt, desStr)
 
-pullSrc2new(alogSrc, alogTgt, gDes)
+
+##################################
