@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"fil",
+				"filtered_alog"
+			],
+			[
+				"meas",
+				"measurements"
+			],
+			[
 				"Pub",
 				"Publisher"
 			],
@@ -184,13 +192,19 @@
 	"buffers":
 	[
 		{
-			"contents": "#!/usr/bin/python\n\"\"\"\ncollection of functions for manipulating *.alogs\n\nAuthor: Robert Cofield\nCreated 6/6/2012\nPython v2.7.3\n\"\"\"\n\ndef pull_source(alogSrc, alogTgt, msgSrc):\n	\"\"\"\n	alogSrc: string of absolute filename\n	\"\"\"\n	import csv, os, ",
-			"file": "scripts/alog_manip.py",
-			"file_size": 221,
-			"file_write_time": 1339024386000000,
+			"file": "scripts/usage.py",
 			"settings":
 			{
-				"buffer_size": 239,
+				"buffer_size": 299,
+				"line_ending": "Unix",
+				"name": "#!/usr/env/python"
+			}
+		},
+		{
+			"file": "scripts/alog_manip.py",
+			"settings":
+			{
+				"buffer_size": 2236,
 				"line_ending": "Unix"
 			}
 		},
@@ -202,16 +216,44 @@
 				"line_ending": "Unix",
 				"name": "Collection of programs/files for manipulating MOOS"
 			}
+		},
+		{
+			"file": "alogs/fhwa2_long.alog",
+			"settings":
+			{
+				"buffer_size": 365243238,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "alogs/short.alog",
+			"settings":
+			{
+				"buffer_size": 2602,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/home/gavlab/rgc0003rosws/fhwa2_viz/fhwa2_MOOS_to_ROS/scripts/randmcnally.py",
+			"settings":
+			{
+				"buffer_size": 9509,
+				"line_ending": "Unix"
+			}
 		}
 	],
 	"build_system": "Packages/Python/Python.sublime-build",
 	"command_palette":
 	{
-		"height": 0.0,
+		"height": 96.0,
 		"selected_items":
 		[
+			[
+				"spaces",
+				"Indentation: Convert to Spaces"
+			]
 		],
-		"width": 0.0
+		"width": 392.0
 	},
 	"console":
 	{
@@ -228,6 +270,7 @@
 	},
 	"file_history":
 	[
+		"/home/gavlab/alog_manip/alogs/ITM_1_1_2010_____02_38_48.alog",
 		"/home/gavlab/alog_manip/pull_gNovatel.py",
 		"/media/8009-F73F/Untitled Document",
 		"/home/gavlab/rgc0003rosws/fhwa2_viz/fhwa2_MOOS_to_ROS/scripts/bridge.py",
@@ -418,27 +461,28 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "scripts/alog_manip.py",
+					"file": "scripts/usage.py",
 					"settings":
 					{
-						"buffer_size": 239,
+						"buffer_size": 299,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								239,
-								239
+								151,
+								151
 							]
 						],
 						"settings":
 						{
+							"auto_name": "#!/usr/env/python",
 							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
@@ -449,6 +493,34 @@
 				},
 				{
 					"buffer": 1,
+					"file": "scripts/alog_manip.py",
+					"settings":
+					{
+						"buffer_size": 2236,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1017,
+								1017
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": true,
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 180.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
 					"file": "README.txt",
 					"settings":
 					{
@@ -467,6 +539,92 @@
 						{
 							"auto_name": "Collection of programs/files for manipulating MOOS",
 							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "alogs/fhwa2_long.alog",
+					"settings":
+					{
+						"buffer_size": 365243238,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1102,
+								1102
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "alogs/short.alog",
+					"settings":
+					{
+						"buffer_size": 2602,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1336,
+								1336
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 5,
+					"file": "/home/gavlab/rgc0003rosws/fhwa2_viz/fhwa2_MOOS_to_ROS/scripts/randmcnally.py",
+					"settings":
+					{
+						"buffer_size": 9509,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -494,11 +652,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.554393305439,
 			1.0
 		],
 		"rows":
