@@ -6,10 +6,13 @@ os.chdir('/home/gavlab/alog_manip/scripts')
 import alog_manip
 
 alogSrc = '/home/gavlab/alog_manip/alogs/fhwa2_long.alog'
-alogTgts = ['/home/gavlab/alog_manip/alogs/fhwa2_Novatel_01.alog',
-		    '/home/gavlab/alog_manip/alogs/fhwa2_Novatel_02.alog',
-		    '/home/gavlab/alog_manip/alogs/fhwa2_Novatel_03.alog']
-desStr = 'gNovatel'
+alogTgts = ['/home/gavlab/alog_manip/alogs/fhwa2_Novatel_corr_01.alog',
+		    '/home/gavlab/alog_manip/alogs/fhwa2_Novatel_corr_02.alog',
+		    '/home/gavlab/alog_manip/alogs/fhwa2_Novatel_corr_03.alog']
+desStr = [' zLat ', ' zLong ', ' zLatStdDev ', ' zLongStdDev ', ' zCourse ']
 
 for alogTgt in alogTgts:
-	alog_manip.pullByStr2new(alogSrc, alogTgt, desStr)
+	alog_manip.pullByStr2new(alogSrc, alogTgt, desStr) # create desired signals-only
+
+#####
+
