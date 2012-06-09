@@ -24,6 +24,6 @@ del desStr
 meas = 'zcourse'
 alogSrc = '/home/gavlab/alog_manip/alogs/output_uncor.alog'
 alogTgt = '/home/gavlab/alog_manip/alogs/output_corr.alog'
-meas = 'zCourse'
-mag = 2.5
+meas = ['zCourse', 'zVertVel']
+mag = [2.5, .0001]
 alog_manip.makeNoisy(alogSrc, alogTgt, meas, mag)

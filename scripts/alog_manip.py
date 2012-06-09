@@ -66,7 +66,7 @@ def makeNoisy(alogSrc, alogTgt, meas, mag):
     INPUTS:
         alog        ::  ABSOLUTE PATH of *.alog file
         meas        ::  LIST of WHICH MEASUREMENT (z_______) to corrupt with gaussian noise
-        scale       ::  std dev of distr
+        mag         ::  LIST of std dev, corresponding to meas
 
     """
     import os
@@ -83,13 +83,14 @@ def makeNoisy(alogSrc, alogTgt, meas, mag):
 
     for msg in src:
         if ("%%" in msg):
-            del msg[-2:-1]
+            msg = msg[0:-2] # get rid of \n at end for printing later
         else:
             msg = msg.split()
-            for des in meas:
-                if msg[1] == des:
-                    noise = normal(float(msg[3]), mag, 1)
+            for des in range(len(meas)):
+                if msg[1] == meas[des]:
+                    noise = normal(float(msg[3]), mag[des], 1)
                     msg[3] = str(noise[0]) # center deviation about measurement
             msg = msg[0]+'     '+msg[1]+'     '+msg[2]+'     '+(msg[3])
         print(msg)
+
         tgt.write(msg + '\n')
