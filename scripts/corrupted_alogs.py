@@ -16,4 +16,5 @@ for alogTgt in alogTgts:
 
 #####
 
-meas = ['zLat', 'x']
+meas = ['zLat', 'zLong', 'zLatStdDev', 'zLongStdDev', 'zCourse']
+mag = 
