@@ -42,6 +42,8 @@ def filterData(src, desStr):
     """
     yields msgs in list format which contain a desired string in the source (third) column
 
+        -slave function to pullByStr2new
+
     src         ::  reader object from source *.alog file
     desStr      ::  string we're looking for
     """
@@ -66,7 +68,7 @@ def makeNoisy(alogSrc, alogTgt, meas, mag):
     INPUTS:
         alog        ::  ABSOLUTE PATH of *.alog file
         meas        ::  LIST of WHICH MEASUREMENT (z_______) to corrupt with gaussian noise
-        mag         ::  LIST of std dev, corresponding to meas
+        mag         ::  LIST of std devs, corresponding to meas
 
     """
     import os
@@ -86,11 +88,53 @@ def makeNoisy(alogSrc, alogTgt, meas, mag):
             msg = msg[0:-2] # get rid of \n at end for printing later
         else:
             msg = msg.split()
+            print(msg)
             for des in range(len(meas)):
                 if msg[1] == meas[des]:
                     noise = normal(float(msg[3]), mag[des], 1)
                     msg[3] = str(noise[0]) # center deviation about measurement
             msg = msg[0]+'     '+msg[1]+'     '+msg[2]+'     '+(msg[3])
-        print(msg)
+        # print(msg)
 
         tgt.write(msg + '\n')
+
+
+
+########################################################################################
+### Tools for I/O using python datatypes ###
+########################################################################################
+
+def alogrd_dict(alogfile):
+    """
+    Prouces a dictionary dctn of info given the absolute path of an *.alog file
+
+    Dictionary Structure:
+        dctn['header']: list of each line containing '%%'
+        dctn[source][meas_type][time] = meas_value
+
+    Presently assumes that 4th column (value) is convertible to float
+        -need to make it dance with lidar strings
+    """
+    import os
+
+    curdir = os.getcwd()
+    os.chdir('/')
+    alog = open(alogfile, 'rU')
+    os.chdir(curdir)
+
+    dctn = dict()
+    dctn['header'] = []
+    for msg in alog: # broken by lines, are now strings
+        if '%%' in msg:
+            dctn['header'].append(msg) # assume all comments occur at beginning of file
+        else:
+            msg = msg.split()
+            if msg[2] not in dctn: # none from this gSource yet
+                dctn[msg[2]] = {}
+            elif msg[1] not in dctn[msg[2]]: # none in this gSource from this zMeas yet
+                dctn[msg[2]][msg[1]] = {}
+            else:
+                dctn[msg[2]][msg[1]][float(msg[0])] = float(msg[3])
+
+    dctn['header'].append('%% This dictionary created by alog_manip.alogrd_dict')
+    return(dctn)

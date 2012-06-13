@@ -4,9 +4,9 @@
 %% FILE OPENED ON  Fri Jan 01 02:38:48 201
 %% LOGSTART               1262335128.1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-2.270     zVertVel     gNovatel     0.00358752985455
+2.270     zVertVel     gNovatel     0.00371281602495
 2.270     zHorizSpeed     gNovatel     0.00206
-2.270     zCourse     gNovatel     297.551581324
+2.270     zCourse     gNovatel     297.584900372
 3.286     zGPSSeconds     gNovatel     77377000
 3.286     zGPSWeek     gNovatel     1653
 3.286     zNumSats     gNovatel     16
@@ -18,9 +18,9 @@
 4.306     zHeight     gNovatel     193.111395738
 4.306     zLong     gNovatel     -85.2972005295
 4.306     zLat     gNovatel     32.5977064842
-4.306     zVertVel     gNovatel     -0.0015401392919
+4.306     zVertVel     gNovatel     -0.00149315386788
 4.306     zHorizSpeed     gNovatel     0.00167
-4.306     zCourse     gNovatel     313.480946535
+4.306     zCourse     gNovatel     317.245947611
 4.306     zpsrNumL1Used     gNovatel     16.00000
 4.306     zpsrNumObs     gNovatel     16.00000
 4.306     zpsrSolAge     gNovatel     0.00000
