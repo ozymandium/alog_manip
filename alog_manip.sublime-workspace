@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"a",
+				"alog"
+			],
+			[
+				"alog",
+				"alog_manip"
+			],
+			[
 				"alg",
 				"alogs"
 			],
@@ -199,7 +207,7 @@
 			"file": "scripts/alog_manip.py",
 			"settings":
 			{
-				"buffer_size": 2845,
+				"buffer_size": 4300,
 				"line_ending": "Unix"
 			}
 		},
@@ -207,7 +215,7 @@
 			"file": "scripts/usage.py",
 			"settings":
 			{
-				"buffer_size": 767,
+				"buffer_size": 1130,
 				"line_ending": "Unix"
 			}
 		},
@@ -234,15 +242,6 @@
 			{
 				"buffer_size": 1764,
 				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/gavlab/Documents/learning_python/noise.py",
-			"settings":
-			{
-				"buffer_size": 292,
-				"line_ending": "Unix",
-				"name": "#! /usr/bin/env python"
 			}
 		},
 		{
@@ -298,6 +297,7 @@
 	},
 	"file_history":
 	[
+		"/home/gavlab/Documents/learning_python/noise.py",
 		"/home/gavlab/alog_manip/alogs/output_corr.alog",
 		"/home/gavlab/alog_manip/alogs/output.alog",
 		"/home/gavlab/rgc0003rosws/fhwa2_viz/fhwa2_MOOS_to_ROS/scripts/randmcnally.py",
@@ -505,7 +505,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -513,15 +513,15 @@
 					"file": "scripts/alog_manip.py",
 					"settings":
 					{
-						"buffer_size": 2845,
+						"buffer_size": 4300,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1670,
-								1670
+								3520,
+								3520
 							]
 						],
 						"settings":
@@ -532,7 +532,7 @@
 							"word_wrap": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 645.0,
+						"translation.y": 1374.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -542,15 +542,15 @@
 					"file": "scripts/usage.py",
 					"settings":
 					{
-						"buffer_size": 767,
+						"buffer_size": 1130,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								717,
-								717
+								1130,
+								1130
 							]
 						],
 						"settings":
@@ -575,8 +575,8 @@
 						"selection":
 						[
 							[
-								647,
-								647
+								57,
+								57
 							]
 						],
 						"settings":
@@ -593,7 +593,7 @@
 			]
 		},
 		{
-			"selected": 5,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -608,8 +608,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								229,
+								229
 							]
 						],
 						"settings":
@@ -651,33 +651,6 @@
 				},
 				{
 					"buffer": 5,
-					"file": "/home/gavlab/Documents/learning_python/noise.py",
-					"settings":
-					{
-						"buffer_size": 292,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								292,
-								292
-							]
-						],
-						"settings":
-						{
-							"auto_name": "#! /usr/bin/env python",
-							"syntax": "Packages/Python/Python.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
 					"file": "alogs/short.alog",
 					"settings":
 					{
@@ -688,8 +661,8 @@
 						"selection":
 						[
 							[
-								1887,
-								1894
+								1098,
+								1098
 							]
 						],
 						"settings":
@@ -703,7 +676,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 6,
 					"file": "alogs/fhwa2_Novatel.alog",
 					"settings":
 					{
@@ -729,7 +702,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 7,
 					"file": "/home/gavlab/Desktop/ITM_1_1_2010_____02_38_48.alog",
 					"settings":
 					{

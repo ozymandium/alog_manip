@@ -2,9 +2,11 @@
 """
 collection of functions for manipulating *.alogs
 
+importing - use <import alog_manip>, not <from alog_manip import *>
+
 Author: Robert Cofield
 Created 6/6/2012
-Python v2.7.3, Ubuntu Precise
+Python v2.7.3, using Ubuntu Precise (12.04)
 """
 
 #############################################################################################
@@ -34,11 +36,14 @@ def pullByStr2new(alogSrc, alogTgt, desStr):
         desStr[desired] = ' ' + desStr[desired] + ' '
         #this keeps things like 'zLat' and 'zLatStdDev' from causing redundancies`
     
-    for line in filterData(src, desStr):
+    for line in extractData(src, desStr):
         tgt.write(line + '\n')
 
+    src.close()
+    tgt.close()
 
-def filterData(src, desStr):
+
+def extractData(src, desStr):
     """
     yields msgs in list format which contain a desired string in the source (third) column
 
@@ -59,6 +64,61 @@ def filterData(src, desStr):
                 yield line
 
 
+##################################################################################
+### rename desired measurements ###
+##################################################################################
+
+def replStr(alogSrc, alogDst, tgtStrs, desStrs):
+    """
+    in the *.alog source file at absolute path alogSrc, finds strings in list tgtStrs in either 2nd or 3rd columns and replaces them with corresponding string in list desStrs, then saves changes to *.alog destination file at absolute path alogDst
+
+    -no changes made to the source file
+
+    Note that output is not yet in pretty justified columns
+
+    This needs to have more file I/O stuff - delete old file & write new?
+
+    not working - consider using extractData and making it more robust
+
+    """
+    import os
+
+    curdir = os.getcwd()
+    os.chdir('/')
+    src = open(alogSrc, 'rU')
+    dst = open(alogDst, 'w')
+    os.chdir(curdir)
+
+    dst.write('%% This file has been modified by alog_manip.replStr \n')
+
+    for phrase in tgtStrs: # take care of possible name confusions (find too many targets)
+        phrase = ' ' + phrase + ' '
+    for phrase in desStrs:
+        phrase = ' ' + phrase + ' '
+
+
+    for msg in src:
+        if '%%' in msg: #will be written with dblspc at the end of this for loop unless we take of the \n now
+            msg = msg[0:-2]
+        for ind in range(len(tgtStrs)): # use indices of inputs in case of lists
+            if tgtStrs[ind] in msg: # bingo.
+                msg == msg.split(msg)
+                if msg[1] == tgtStrs[ind]: # its the measurement we're replacing
+                    msg[1] = desStrs[ind]
+                elif msg[2] == tgtStrs[ind]: # its the sensor we're replacing
+                    msg[2] == desStrs[ind]
+                else:
+                    print('Warning:: Bad target string')
+                msg = msg[0] + '\t'*3 + msg[1] + '\t'*3 + msg[2] + '\t'*3 + msg[3] # reconstruct
+        dst.write(msg + '\n') # took \n off the non-reconstituted msgs (comments)
+
+    src.close()
+    dst.close()
+
+
+
+###########################################################################################
+### Value Changing Functions ###
 ###########################################################################################
 
 def makeNoisy(alogSrc, alogTgt, meas, mag):
@@ -70,6 +130,7 @@ def makeNoisy(alogSrc, alogTgt, meas, mag):
         meas        ::  LIST of WHICH MEASUREMENT (z_______) to corrupt with gaussian noise
         mag         ::  LIST of std devs, corresponding to meas
 
+    Note that output is not yet in pretty justified columns --> examine Create_alog.m to fix
     """
     import os
     from numpy.random import normal
@@ -88,16 +149,14 @@ def makeNoisy(alogSrc, alogTgt, meas, mag):
             msg = msg[0:-2] # get rid of \n at end for printing later
         else:
             msg = msg.split()
-            print(msg)
             for des in range(len(meas)):
                 if msg[1] == meas[des]:
                     noise = normal(float(msg[3]), mag[des], 1)
                     msg[3] = str(noise[0]) # center deviation about measurement
-            msg = msg[0]+'     '+msg[1]+'     '+msg[2]+'     '+(msg[3])
+            msg = msg[0]+ '\t'*3 +msg[1]+ '\t'*3 + msg[2] + '\t'*3 + (msg[3])
         # print(msg)
 
         tgt.write(msg + '\n')
-
 
 
 ########################################################################################
@@ -110,10 +169,13 @@ def alogrd_dict(alogfile):
 
     Dictionary Structure:
         dctn['header']: list of each line containing '%%'
-        dctn[source][meas_type][time] = meas_value
+        dctn['gSensor']['zMeasurment'][Time] = value
 
     Presently assumes that 4th column (value) is convertible to float
         -need to make it dance with lidar strings
+
+    Note that no newline '\n' is present in data when using later.
+
     """
     import os
 
@@ -123,18 +185,17 @@ def alogrd_dict(alogfile):
     os.chdir(curdir)
 
     dctn = dict()
-    dctn['header'] = []
+    dctn['header'] = ['%% This dictionary created by alog_manip.alogrd_dict']
     for msg in alog: # broken by lines, are now strings
+        msg = msg[0:-1] # remove \n at the end of the string
         if '%%' in msg:
             dctn['header'].append(msg) # assume all comments occur at beginning of file
         else:
             msg = msg.split()
             if msg[2] not in dctn: # none from this gSource yet
                 dctn[msg[2]] = {}
-            elif msg[1] not in dctn[msg[2]]: # none in this gSource from this zMeas yet
+            if msg[1] not in dctn[msg[2]]: # none in this gSource from this zMeas yet
                 dctn[msg[2]][msg[1]] = {}
-            else:
-                dctn[msg[2]][msg[1]][float(msg[0])] = float(msg[3])
+            dctn[msg[2]][msg[1]][float(msg[0])] = float(msg[3])
 
-    dctn['header'].append('%% This dictionary created by alog_manip.alogrd_dict')
     return(dctn)
