@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"tgt",
+				"tgtStrs"
+			],
+			[
+				"out",
+				"output"
+			],
+			[
+				"desS",
+				"desStrs"
+			],
+			[
+				"tg",
+				"tgtStr"
+			],
+			[
+				"al",
+				"alogfile"
+			],
+			[
 				"a",
 				"alog"
 			],
@@ -207,7 +227,7 @@
 			"file": "scripts/alog_manip.py",
 			"settings":
 			{
-				"buffer_size": 4300,
+				"buffer_size": 6728,
 				"line_ending": "Unix"
 			}
 		},
@@ -215,7 +235,7 @@
 			"file": "scripts/usage.py",
 			"settings":
 			{
-				"buffer_size": 1130,
+				"buffer_size": 2215,
 				"line_ending": "Unix"
 			}
 		},
@@ -226,22 +246,6 @@
 				"buffer_size": 647,
 				"line_ending": "Unix",
 				"name": "#!/usr/bin/python"
-			}
-		},
-		{
-			"file": "alogs/output_corr.alog",
-			"settings":
-			{
-				"buffer_size": 1425,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "alogs/output_uncor.alog",
-			"settings":
-			{
-				"buffer_size": 1764,
-				"line_ending": "Unix"
 			}
 		},
 		{
@@ -297,8 +301,9 @@
 	},
 	"file_history":
 	[
-		"/home/gavlab/Documents/learning_python/noise.py",
+		"/home/gavlab/alog_manip/alogs/output_uncor.alog",
 		"/home/gavlab/alog_manip/alogs/output_corr.alog",
+		"/home/gavlab/Documents/learning_python/noise.py",
 		"/home/gavlab/alog_manip/alogs/output.alog",
 		"/home/gavlab/rgc0003rosws/fhwa2_viz/fhwa2_MOOS_to_ROS/scripts/randmcnally.py",
 		"/home/gavlab/alog_manip/README.txt",
@@ -420,7 +425,7 @@
 	],
 	"find":
 	{
-		"height": 37.0
+		"height": 36.0
 	},
 	"find_in_files":
 	{
@@ -434,6 +439,9 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"alog",
+			"filterData",
+			"tgtStr",
 			"zLat",
 			"21.317",
 			"zpsrX",
@@ -491,6 +499,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"src",
+			"ind",
 			"desStr",
 			"ll2utm",
 			"time",
@@ -513,15 +523,15 @@
 					"file": "scripts/alog_manip.py",
 					"settings":
 					{
-						"buffer_size": 4300,
+						"buffer_size": 6728,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3520,
-								3520
+								1261,
+								1261
 							]
 						],
 						"settings":
@@ -532,7 +542,7 @@
 							"word_wrap": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1374.0,
+						"translation.y": 443.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -542,15 +552,15 @@
 					"file": "scripts/usage.py",
 					"settings":
 					{
-						"buffer_size": 1130,
+						"buffer_size": 2215,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1130,
-								1130
+								1727,
+								1727
 							]
 						],
 						"settings":
@@ -558,7 +568,7 @@
 							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 270.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -593,29 +603,28 @@
 			]
 		},
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 3,
-					"file": "alogs/output_corr.alog",
+					"file": "alogs/short.alog",
 					"settings":
 					{
-						"buffer_size": 1425,
+						"buffer_size": 2597,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								229,
-								229
+								1559,
+								1559
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"word_wrap": false
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -625,18 +634,18 @@
 				},
 				{
 					"buffer": 4,
-					"file": "alogs/output_uncor.alog",
+					"file": "alogs/fhwa2_Novatel.alog",
 					"settings":
 					{
-						"buffer_size": 1764,
+						"buffer_size": 190762,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								510,
+								510
 							]
 						],
 						"settings":
@@ -651,58 +660,6 @@
 				},
 				{
 					"buffer": 5,
-					"file": "alogs/short.alog",
-					"settings":
-					{
-						"buffer_size": 2597,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1098,
-								1098
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "alogs/fhwa2_Novatel.alog",
-					"settings":
-					{
-						"buffer_size": 190762,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1003,
-								1003
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
 					"file": "/home/gavlab/Desktop/ITM_1_1_2010_____02_38_48.alog",
 					"settings":
 					{
@@ -713,8 +670,8 @@
 						"selection":
 						[
 							[
-								662,
-								662
+								17584,
+								17584
 							]
 						],
 						"settings":
@@ -722,7 +679,7 @@
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2975.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -758,7 +715,7 @@
 		"cols":
 		[
 			0.0,
-			0.51972504483,
+			0.538852361028,
 			1.0
 		],
 		"rows":

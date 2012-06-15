@@ -1,0 +1,7 @@
+TO DO:
+
+-learn how to format justified and pretty
+
+- make string replacement work
+
+-implement reconstructLine in all other functions

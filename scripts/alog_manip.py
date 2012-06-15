@@ -21,6 +21,8 @@ def pullByStr2new(alogSrc, alogTgt, desStr):
         alogTgt     ::  ABSOLUTE PATH STRING of desired target *.alog file
         desStr      ::  messages containing any STRING in this LIST will be copied
 
+    -will overwrite alogTgt if already existing
+
     """
     import csv, os
 
@@ -109,12 +111,67 @@ def replStr(alogSrc, alogDst, tgtStrs, desStrs):
                     msg[2] == desStrs[ind]
                 else:
                     print('Warning:: Bad target string')
-                msg = msg[0] + '\t'*3 + msg[1] + '\t'*3 + msg[2] + '\t'*3 + msg[3] # reconstruct
+                msg = reconstructLine(msg)
         dst.write(msg + '\n') # took \n off the non-reconstituted msgs (comments)
 
     src.close()
     dst.close()
 
+
+###########################################################################################
+### Reconstruct alog file with pretty formatting (justified) ###
+###########################################################################################
+
+def reconstructLine(msgList):
+    """
+    INPUT msgList is a python list of length 4:
+        time (string), zMeasurment (string), gSensor (string), value (string)
+
+    OUTPUT will be a one-line string with no formatting characters
+
+    typical (short enough variable names) spacing:
+    |[col1]         |[col17]        |[col38]        |[col54]
+    time(16cols)    meas(21cols)    sens(16cols)    valu(inf_cols)
+
+    If one measurment is too long, the following parts are bumped back, even if they could have been inline correctly... fix this
+    """
+    timeSpc = 16 # size allotted each of 4 columns
+    measSpc = 21
+    sensSpc = 16
+
+    time_short_enough = True
+    meas_short_enough = True
+    sens_short_enough = True
+
+    time = msgList[0] #keep as string
+    meas = msgList[1] 
+    sens = msgList[2]
+    valu = msgList[3] #keep as string
+
+    if len(time) >= timeSpc:
+        time_short_enough = False
+    if len(meas) >= measSpc:
+        meas_short_enough = False
+    if len(sens) >= sensSpc:
+        sens_short_enough
+
+    line = time
+    if time_short_enough:
+        line += (' '*(timeSpc-len(time)) + meas)
+    else:
+        line += (' ' + meas)
+
+    if meas_short_enough:
+        line += (' '*(measSpc-len(meas)) + sens)
+    else:
+        line += (' ' + sens)
+
+    if sens_short_enough:
+        line += (' '*(sensSpc-len(sens)) + valu)
+    else:
+        line += (' ' + valu)
+
+    return line
 
 
 ###########################################################################################
@@ -153,7 +210,7 @@ def makeNoisy(alogSrc, alogTgt, meas, mag):
                 if msg[1] == meas[des]:
                     noise = normal(float(msg[3]), mag[des], 1)
                     msg[3] = str(noise[0]) # center deviation about measurement
-            msg = msg[0]+ '\t'*3 +msg[1]+ '\t'*3 + msg[2] + '\t'*3 + (msg[3])
+            msg = reconstructLine(msg)
         # print(msg)
 
         tgt.write(msg + '\n')
