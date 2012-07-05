@@ -4,6 +4,38 @@
 		"selected_items":
 		[
 			[
+				"nex",
+				"next_valu"
+			],
+			[
+				"curr",
+				"curr_valu"
+			],
+			[
+				"loH",
+				"loHzDict"
+			],
+			[
+				"a",
+				"alogs"
+			],
+			[
+				"f",
+				"fhwa2_MOOS_to_ROS"
+			],
+			[
+				"fh",
+				"fhwa2_viz"
+			],
+			[
+				"gS",
+				"gSensor"
+			],
+			[
+				"z",
+				"zMeasurment"
+			],
+			[
 				"tgt",
 				"tgtStrs"
 			],
@@ -22,10 +54,6 @@
 			[
 				"al",
 				"alogfile"
-			],
-			[
-				"a",
-				"alog"
 			],
 			[
 				"alog",
@@ -132,10 +160,6 @@
 				"_deg2rad"
 			],
 			[
-				"z",
-				"zCourse"
-			],
-			[
 				"var",
 				"var_name"
 			],
@@ -227,48 +251,66 @@
 			"file": "scripts/alog_manip.py",
 			"settings":
 			{
-				"buffer_size": 6728,
+				"buffer_size": 10829,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "scripts/usage.py",
+			"file": "/home/gavlab/rgc0003rosws/fhwa2_viz/fhwa2_MOOS_to_ROS/scripts/increase_hertz.py",
 			"settings":
 			{
-				"buffer_size": 2215,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "scripts/corrupted_alogs.py",
-			"settings":
-			{
-				"buffer_size": 647,
+				"buffer_size": 503,
 				"line_ending": "Unix",
 				"name": "#!/usr/bin/python"
 			}
 		},
 		{
-			"file": "alogs/short.alog",
+			"file": "to-do.txt",
 			"settings":
 			{
-				"buffer_size": 2597,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "alogs/fhwa2_Novatel.alog",
-			"settings":
-			{
-				"buffer_size": 190762,
+				"buffer_size": 114,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/gavlab/Desktop/ITM_1_1_2010_____02_38_48.alog",
+			"file": ".gitignore",
 			"settings":
 			{
-				"buffer_size": 365243238,
+				"buffer_size": 39,
+				"line_ending": "Unix",
+				"name": "*.sublime-workspace"
+			}
+		},
+		{
+			"file": "/home/gavlab/rgc0003rosws/fhwa2_viz/fhwa2_MOOS_to_ROS/scripts/make_mult_inputs.py",
+			"settings":
+			{
+				"buffer_size": 2355,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/gavlab/PySandbox/timestamping.py",
+			"settings":
+			{
+				"buffer_size": 210,
+				"line_ending": "Unix",
+				"name": "#ways to get timestamps:"
+			}
+		},
+		{
+			"file": "/home/gavlab/alog_Files/Long_novatel_plus3.alog",
+			"settings":
+			{
+				"buffer_size": 771023,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/gavlab/alog_Files/short.alog",
+			"settings":
+			{
+				"buffer_size": 2597,
 				"line_ending": "Windows"
 			}
 		}
@@ -301,17 +343,22 @@
 	},
 	"file_history":
 	[
+		"/home/gavlab/alog_manip/scripts/usage.py",
+		"/home/gavlab/alog_manip/alogs/short.alog",
+		"/home/gavlab/alog_manip/alogs/fhwa2_Novatel.alog",
+		"/home/gavlab/alog_manip/alogs/fhwa2_long.alog",
+		"/home/gavlab/alog_manip/alogs/short_restring.alog",
+		"/home/gavlab/rgc0003rosws/fhwa2_viz/fhwa2_MOOS_to_ROS/alogs/Long_novatel_plus3.alog",
+		"/home/gavlab/Desktop/ITM_1_1_2010_____02_38_48.alog",
+		"/home/gavlab/alog_manip/scripts/corrupted_alogs.py",
 		"/home/gavlab/alog_manip/alogs/output_uncor.alog",
 		"/home/gavlab/alog_manip/alogs/output_corr.alog",
 		"/home/gavlab/Documents/learning_python/noise.py",
 		"/home/gavlab/alog_manip/alogs/output.alog",
 		"/home/gavlab/rgc0003rosws/fhwa2_viz/fhwa2_MOOS_to_ROS/scripts/randmcnally.py",
 		"/home/gavlab/alog_manip/README.txt",
-		"/home/gavlab/alog_manip/alogs/fhwa2_long.alog",
 		"/home/gavlab/alog_manip/alogs/fhwa2_Novatel_01.alog",
 		"/home/gavlab/alog_manip/alogs/fhwa2_Novatel_02.alog",
-		"/home/gavlab/alog_manip/alogs/fhwa2_Novatel.alog",
-		"/home/gavlab/alog_manip/scripts/usage.py",
 		"/home/gavlab/alog_manip/scripts/fhwa2_long_Novatel_03.alog",
 		"/home/gavlab/alog_manip/scripts/fhwa2_long_Novatel_02.alog",
 		"/home/gavlab/alog_manip/scripts/fhwa2_long_Novatel_01.alog",
@@ -389,7 +436,6 @@
 		"/home/gavlab/rgc0003rosws/fhwa2_viz/fhwa2_MOOS_to_ROS/scripts/novatel_to_odom.py",
 		"/home/gavlab/rgc0003rosws/MOOS-ros-pkg/MOOS/pyMOOS/build/pyMOOS_svn/src/pyMOOSMsg.cpp",
 		"/home/gavlab/rgc0003rosws/MOOS-ros-pkg/MOOS-ROS-Bridge/MOOS2ROS/scripts/moos2ros.py",
-		"/home/gavlab/Desktop/ITM_1_1_2010_____02_38_48.alog",
 		"/home/gavlab/Documents/FHWA2/LatLongUTMconversion.py",
 		"/home/gavlab/rgc0003rosws/MOOS-ros-pkg/MOOS/CMakeLists.txt",
 		"/home/gavlab/rgc0003rosws/MOOS-ros-pkg/MOOS/Makefile",
@@ -439,6 +485,7 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"stamp",
 			"alog",
 			"filterData",
 			"tgtStr",
@@ -523,15 +570,15 @@
 					"file": "scripts/alog_manip.py",
 					"settings":
 					{
-						"buffer_size": 6728,
+						"buffer_size": 10829,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1261,
-								1261
+								10296,
+								10296
 							]
 						],
 						"settings":
@@ -539,60 +586,89 @@
 							"syntax": "Packages/Python/Python.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true,
-							"word_wrap": true
+							"word_wrap": true,
+							"wrap_width": 78
 						},
 						"translation.x": 0.0,
-						"translation.y": 443.0,
+						"translation.y": 3764.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "scripts/usage.py",
+					"file": "/home/gavlab/rgc0003rosws/fhwa2_viz/fhwa2_MOOS_to_ROS/scripts/increase_hertz.py",
 					"settings":
 					{
-						"buffer_size": 2215,
+						"buffer_size": 503,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1727,
-								1727
+								503,
+								503
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.tmLanguage"
+							"auto_name": "#!/usr/bin/python",
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"wrap_width": 78
 						},
 						"translation.x": 0.0,
-						"translation.y": 270.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "scripts/corrupted_alogs.py",
+					"file": "to-do.txt",
 					"settings":
 					{
-						"buffer_size": 647,
+						"buffer_size": 114,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								57,
-								57
+								114,
+								114
 							]
 						],
 						"settings":
 						{
-							"auto_name": "#!/usr/bin/python",
-							"syntax": "Packages/Python/Python.tmLanguage"
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": ".gitignore",
+					"settings":
+					{
+						"buffer_size": 39,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								39,
+								39
+							]
+						],
+						"settings":
+						{
+							"auto_name": "*.sublime-workspace",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -603,12 +679,93 @@
 			]
 		},
 		{
-			"selected": 0,
+			"selected": 3,
 			"sheets":
 			[
 				{
-					"buffer": 3,
-					"file": "alogs/short.alog",
+					"buffer": 4,
+					"file": "/home/gavlab/rgc0003rosws/fhwa2_viz/fhwa2_MOOS_to_ROS/scripts/make_mult_inputs.py",
+					"settings":
+					{
+						"buffer_size": 2355,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1292,
+								1292
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 286.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/home/gavlab/PySandbox/timestamping.py",
+					"settings":
+					{
+						"buffer_size": 210,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								132,
+								132
+							]
+						],
+						"settings":
+						{
+							"auto_name": "#ways to get timestamps:",
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/home/gavlab/alog_Files/Long_novatel_plus3.alog",
+					"settings":
+					{
+						"buffer_size": 771023,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4659,
+								4659
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/home/gavlab/alog_Files/short.alog",
 					"settings":
 					{
 						"buffer_size": 2597,
@@ -618,8 +775,8 @@
 						"selection":
 						[
 							[
-								1559,
-								1559
+								0,
+								0
 							]
 						],
 						"settings":
@@ -628,62 +785,15 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "alogs/fhwa2_Novatel.alog",
-					"settings":
-					{
-						"buffer_size": 190762,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								510,
-								510
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "/home/gavlab/Desktop/ITM_1_1_2010_____02_38_48.alog",
-					"settings":
-					{
-						"buffer_size": 365243238,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								17584,
-								17584
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 2975.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				}
+			]
+		},
+		{
+			"sheets":
+			[
 			]
 		}
 	],
@@ -710,12 +820,19 @@
 				0,
 				2,
 				1
+			],
+			[
+				2,
+				0,
+				3,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.538852361028,
+			0.383795576808,
+			0.743682008368,
 			1.0
 		],
 		"rows":
@@ -725,6 +842,10 @@
 		]
 	},
 	"menu_visible": true,
+	"output.unsaved_changes":
+	{
+		"height": 152.0
+	},
 	"replace":
 	{
 		"height": 64.0

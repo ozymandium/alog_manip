@@ -2,7 +2,7 @@
 """
 collection of functions for manipulating *.alogs
 
-importing - use <import alog_manip>, not <from alog_manip import *>
+importing - use <import alog_manip>, these functions have interdependencies
 
 Author: Robert Cofield
 Created 6/6/2012
@@ -236,10 +236,10 @@ def alogrd_dict(alogfile):
     """
     import os
 
-    curdir = os.getcwd()
-    os.chdir('/')
+    # curdir = os.getcwd()
+    # os.chdir('/')
     alog = open(alogfile, 'rU')
-    os.chdir(curdir)
+    # os.chdir(curdir)
 
     dctn = dict()
     dctn['header'] = ['%% This dictionary created by alog_manip.alogrd_dict']
@@ -256,3 +256,69 @@ def alogrd_dict(alogfile):
             dctn[msg[2]][msg[1]][float(msg[0])] = float(msg[3])
 
     return(dctn)
+
+###############################################################################
+
+
+def increaseFreq(loHz, desHz):
+    """
+    Given a dictionary of alog data, increases message frequency to scpecified rate via interpolation
+    ***It is assumed loHz will have the same format as output by the function alogrd_dict***
+    ***Assume all msgs occur in chronological order***
+
+    linearly adds data between supplied datapoints - no recalculating given data
+        -note this function created to have smoother visualizations from alog data, not to be used in any mathematical calculations
+    yields time to 5 decimal places
+    """
+    from scipy.interpolate import interp1d
+    import time
+    from pprint import pprint
+    from numpy import linspace, floor
+
+    if desHz > 100000:
+        raise ValueError('Max Frequency is 100,000 (5 decimal places)')
+    now = time.asctime(time.localtime(time.time()))    
+    stamp = ''.join(['%% The following was created by alog_manip.increaseFreq on ', now])
+    increase_msg = ''.join(['%% Resultant Frequency: ',str(desHz),' Hz'])
+    hiHz = {}
+    hiHz['header'] = [stamp,increase_msg,'%%%%'] + loHz['header']
+
+    global sens, meas, dat
+
+    def main():
+        """ Primary interpolation function for increaseFreq
+        Consider using uniaxial spline --> would have one function for all of dictionary dat
+        """
+        times = sorted(dat)
+        for n in range(len(dat) - 1):
+            linfun = interp1d([times[n], times[n+1]],
+                              [dat[times[n]], dat[times[n+1]]])
+            dt = times[n+1] - times[n] # current
+            freq = 1/dt # current
+            if dt < (1/desHz):
+                print('found instance where Freq already at/above desired Freq')
+            else:
+                new_dt = dt*freq/desHz
+                print('timesteps created: %f' % (dt/new_dt)
+                new_timestep = linspace(times[n],times[n+1],floor(dt/new_dt))
+                new_values = linfun(new_timestep)
+                for m in len(new_timestep):
+                    newdat[new_timestep[m]] = new_values[m]
+
+
+    # go thru and pull out dictionaries {time: value} then send to interpolation func
+    for sens in loHz:
+        if sens == 'header':
+            pass
+        else:
+            hiHz[sens] = {}
+            for meas in loHz[sens]:
+                hiHz[sens][meas] = {}
+                dat = loHz[sens][meas]
+                if len(dat) == 1:
+                    pass # only 1 data point
+                else:
+                    newdat = {}
+                    main()
+
+    return hiHz
