@@ -8,8 +8,8 @@ usage of alog_manip utilities
 Created 6/6/2012, by Robert Cofield
 """
 
-import os, alog_manip, shutil, sys
-os.chdir('/home/gavlab/alog_manip/scripts') # where this module currently is
+import os, alog_manip, shutil, sys, pdb
+# os.chdir('/home/gavlab/alog_manip/scripts') # where this module currently is
 
 # ############################################
 # ### pulling out & muddying gNovatel data ### This section works
@@ -57,12 +57,20 @@ os.chdir('/home/gavlab/alog_manip/scripts') # where this module currently is
 ### rename certain phrases(strings) ### this section not yet tested
 #######################################
 
-alogSrc = '/home/gavlab/alog_manip/alogs/short.alog'
-alogDst = '/home/gavlab/alog_manip/alogs/short_restring.alog'
+# alogSrc = '/home/gavlab/alog_manip/alogs/short.alog'
+# alogDst = '/home/gavlab/alog_manip/alogs/short_restring.alog'
 
-tgtStrs = ['zVertVel','zHorizSpeed','zCourse']
-desStrs = ['zVV','zHS','zC']
+# tgtStrs = ['zVertVel','zHorizSpeed','zCourse']
+# desStrs = ['zVV','zHS','zC']
 
-alog_manip.replStr(alogSrc, alogDst, tgtStrs, desStrs)
+# alog_manip.replStr(alogSrc, alogDst, tgtStrs, desStrs)
 
-print('\n\nThis is the rename test -- open file short_restring.alog\n\n')
+# print('\n\nThis is the rename test -- open file short_restring.alog\n\n')
+
+###################################
+### increasing frequency
+###################################
+loHzAlog = '/home/gavlab/alog_Files/short.alog'
+loHzDict = alog_manip.alogrd_dict(loHzAlog)
+desHz = 5
+alog_manip.increaseFreq(loHzDict, desHz)

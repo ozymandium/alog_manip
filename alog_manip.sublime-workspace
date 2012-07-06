@@ -251,7 +251,7 @@
 			"file": "scripts/alog_manip.py",
 			"settings":
 			{
-				"buffer_size": 10829,
+				"buffer_size": 10934,
 				"line_ending": "Unix"
 			}
 		},
@@ -562,7 +562,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -570,15 +570,15 @@
 					"file": "scripts/alog_manip.py",
 					"settings":
 					{
-						"buffer_size": 10829,
+						"buffer_size": 10934,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								10296,
-								10296
+								8355,
+								8355
 							]
 						],
 						"settings":
@@ -590,7 +590,7 @@
 							"wrap_width": 78
 						},
 						"translation.x": 0.0,
-						"translation.y": 3764.0,
+						"translation.y": 3374.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -679,7 +679,7 @@
 			]
 		},
 		{
-			"selected": 3,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -790,11 +790,6 @@
 					"type": "text"
 				}
 			]
-		},
-		{
-			"sheets":
-			[
-			]
 		}
 	],
 	"incremental_find":
@@ -820,19 +815,12 @@
 				0,
 				2,
 				1
-			],
-			[
-				2,
-				0,
-				3,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.383795576808,
-			0.743682008368,
+			0.5,
 			1.0
 		],
 		"rows":

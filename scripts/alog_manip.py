@@ -274,6 +274,7 @@ def increaseFreq(loHz, desHz):
     import time
     from pprint import pprint
     from numpy import linspace, floor
+    # import logging
 
     if desHz > 100000:
         raise ValueError('Max Frequency is 100,000 (5 decimal places)')
@@ -289,22 +290,24 @@ def increaseFreq(loHz, desHz):
         """ Primary interpolation function for increaseFreq
         Consider using uniaxial spline --> would have one function for all of dictionary dat
         """
-        times = sorted(dat)
+        orig_times = sorted(dat)
         for n in range(len(dat) - 1):
-            linfun = interp1d([times[n], times[n+1]],
-                              [dat[times[n]], dat[times[n+1]]])
-            dt = times[n+1] - times[n] # current
+            linfun = interp1d([orig_times[n], orig_times[n+1]],
+                              [dat[orig_times[n]], dat[orig_times[n+1]]])
+            dt = orig_times[n+1] - orig_times[n] # current
             freq = 1/dt # current
             if dt < (1/desHz):
                 print('found instance where Freq already at/above desired Freq')
             else:
                 new_dt = dt*freq/desHz
-                print('timesteps created: %f' % (dt/new_dt)
-                new_timestep = linspace(times[n],times[n+1],floor(dt/new_dt))
-                new_values = linfun(new_timestep)
-                for m in len(new_timestep):
-                    newdat[new_timestep[m]] = new_values[m]
-
+                print('number of new time steps created: %f' % (dt/new_dt))
+                new_times = linspace(orig_times[n],orig_times[n+1],floor(dt/new_dt))
+                # print(new_times)
+                new_values = linfun(new_times)
+                print('\nnew_values')
+                pprint(new_values)
+                for m in range(len(new_values)):
+                    newdat[new_times[m]] = new_values[m]
 
     # go thru and pull out dictionaries {time: value} then send to interpolation func
     for sens in loHz:
