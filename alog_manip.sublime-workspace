@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"out",
+				"outFileLoc"
+			],
+			[
+				"sou",
+				"sourceFileString"
+			],
+			[
+				"abs",
+				"absolute"
+			],
+			[
 				"nex",
 				"next_valu"
 			],
@@ -38,10 +50,6 @@
 			[
 				"tgt",
 				"tgtStrs"
-			],
-			[
-				"out",
-				"output"
 			],
 			[
 				"desS",
@@ -248,20 +256,11 @@
 	"buffers":
 	[
 		{
-			"file": "scripts/alog_manip.py",
+			"file": "MOOSalog/MOOSalog.py",
 			"settings":
 			{
-				"buffer_size": 10934,
+				"buffer_size": 12469,
 				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/gavlab/rgc0003rosws/fhwa2_viz/fhwa2_MOOS_to_ROS/scripts/increase_hertz.py",
-			"settings":
-			{
-				"buffer_size": 503,
-				"line_ending": "Unix",
-				"name": "#!/usr/bin/python"
 			}
 		},
 		{
@@ -279,39 +278,6 @@
 				"buffer_size": 39,
 				"line_ending": "Unix",
 				"name": "*.sublime-workspace"
-			}
-		},
-		{
-			"file": "/home/gavlab/rgc0003rosws/fhwa2_viz/fhwa2_MOOS_to_ROS/scripts/make_mult_inputs.py",
-			"settings":
-			{
-				"buffer_size": 2355,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/gavlab/PySandbox/timestamping.py",
-			"settings":
-			{
-				"buffer_size": 210,
-				"line_ending": "Unix",
-				"name": "#ways to get timestamps:"
-			}
-		},
-		{
-			"file": "/home/gavlab/alog_Files/Long_novatel_plus3.alog",
-			"settings":
-			{
-				"buffer_size": 771023,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/gavlab/alog_Files/short.alog",
-			"settings":
-			{
-				"buffer_size": 2597,
-				"line_ending": "Windows"
 			}
 		}
 	],
@@ -343,6 +309,17 @@
 	},
 	"file_history":
 	[
+		"/home/ozymandium/openCV/OpenCV-2.4.2/README",
+		"/home/ozymandium/alog_manip/__init__.py",
+		"/home/ozymandium/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/home/ozymandium/fhwa2_ws/MOOS-ros-pkg/MOOS/pymoos/bin/MOOSCommClient.py",
+		"/home/ozymandium/fhwa2_ws/MOOS-ros-pkg/MOOS/pymoos/python/__init__.py",
+		"/home/ozymandium/alog_manip/MOOSalog/__init__.py",
+		"/home/gavlab/alog_Files/short.alog",
+		"/home/gavlab/rgc0003rosws/fhwa2_viz/fhwa2_MOOS_to_ROS/scripts/make_mult_inputs.py",
+		"/home/gavlab/alog_Files/Long_novatel_plus3.alog",
+		"/home/gavlab/PySandbox/timestamping.py",
+		"/home/gavlab/rgc0003rosws/fhwa2_viz/fhwa2_MOOS_to_ROS/scripts/increase_hertz.py",
 		"/home/gavlab/alog_manip/scripts/usage.py",
 		"/home/gavlab/alog_manip/alogs/short.alog",
 		"/home/gavlab/alog_manip/alogs/fhwa2_Novatel.alog",
@@ -459,15 +436,7 @@
 		"/home/gavlab/Documents/FHWA2/obj_io_modif232b.py",
 		"/home/gavlab/rgc0003rosws/MOOS-ros-pkg/MOOS-ROS-Bridge/MOOS_msgs/msg_gen/lisp/MOOSDouble.lisp",
 		"/home/gavlab/rgc0003rosws/MOOS-ros-pkg/MOOS-ROS-Bridge/MOOS_msgs/src/MOOS_msgs/__init__.py",
-		"/home/gavlab/rgc0003rosws/MOOS-ros-pkg/MOOS-ROS-Bridge/MOOS_msgs/src/MOOS_msgs/msg/__init__.py",
-		"/home/gavlab/rgc0003rosws/MOOS-ros-pkg/MOOS-ROS-Bridge/MOOS_msgs/msg/MOOSDouble.msg",
-		"/home/gavlab/rgc0003rosws/MOOS-ros-pkg/MOOS-ROS-Bridge/MOOS2ROS/include/MOOS2ROS/moos2ros.h",
-		"/home/gavlab/Documents/FHWA2/ring5_xyzPlane.obj",
-		"/home/gavlab/Documents/FHWA2/ring4_xyzPlane.obj",
-		"/home/gavlab/Documents/FHWA2/ring3_xyzPlane.obj",
-		"/home/gavlab/Documents/FHWA2/ring2_xyzPlane.obj",
-		"/home/gavlab/Documents/FHWA2/ring1_xyzPlane.obj",
-		"/home/gavlab/Desktop/track_survey_sorted_lla.mat"
+		"/home/gavlab/rgc0003rosws/MOOS-ros-pkg/MOOS-ROS-Bridge/MOOS_msgs/src/MOOS_msgs/msg/__init__.py"
 	],
 	"find":
 	{
@@ -485,6 +454,7 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"alogrd_dict",
 			"stamp",
 			"alog",
 			"filterData",
@@ -562,23 +532,23 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "scripts/alog_manip.py",
+					"file": "MOOSalog/MOOSalog.py",
 					"settings":
 					{
-						"buffer_size": 10934,
+						"buffer_size": 12469,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								8355,
-								8355
+								1087,
+								1087
 							]
 						],
 						"settings":
@@ -587,44 +557,16 @@
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true,
 							"word_wrap": true,
-							"wrap_width": 78
+							"wrap_width": 0
 						},
 						"translation.x": 0.0,
-						"translation.y": 3374.0,
+						"translation.y": 360.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "/home/gavlab/rgc0003rosws/fhwa2_viz/fhwa2_MOOS_to_ROS/scripts/increase_hertz.py",
-					"settings":
-					{
-						"buffer_size": 503,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								503,
-								503
-							]
-						],
-						"settings":
-						{
-							"auto_name": "#!/usr/bin/python",
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"wrap_width": 78
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"file": "to-do.txt",
 					"settings":
 					{
@@ -650,7 +592,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 2,
 					"file": ".gitignore",
 					"settings":
 					{
@@ -668,119 +610,6 @@
 						"settings":
 						{
 							"auto_name": "*.sublime-workspace",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 1,
-			"sheets":
-			[
-				{
-					"buffer": 4,
-					"file": "/home/gavlab/rgc0003rosws/fhwa2_viz/fhwa2_MOOS_to_ROS/scripts/make_mult_inputs.py",
-					"settings":
-					{
-						"buffer_size": 2355,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1292,
-								1292
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"translate_tabs_to_spaces": false,
-							"word_wrap": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 286.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "/home/gavlab/PySandbox/timestamping.py",
-					"settings":
-					{
-						"buffer_size": 210,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								132,
-								132
-							]
-						],
-						"settings":
-						{
-							"auto_name": "#ways to get timestamps:",
-							"syntax": "Packages/Python/Python.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "/home/gavlab/alog_Files/Long_novatel_plus3.alog",
-					"settings":
-					{
-						"buffer_size": 771023,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4659,
-								4659
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "/home/gavlab/alog_Files/short.alog",
-					"settings":
-					{
-						"buffer_size": 2597,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
@@ -809,18 +638,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.5,
 			1.0
 		],
 		"rows":
