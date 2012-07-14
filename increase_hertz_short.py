@@ -18,4 +18,7 @@ print('source Data:')
 pprint(alog.srcData)
 print('\n\n\noutput Data:')
 pprint(alog.outData)
-print('\n\n\n\n\n\n\n')
+print('\n\n\n\n\n')
+
+# msg_list = alog.chronologize()
+# pprint(msg_list)

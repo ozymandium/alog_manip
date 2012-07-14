@@ -15,7 +15,7 @@ Python v2.7.3, using Ubuntu Precise (12.04)
 
 # def getTimeStamp(line):
 #     return float(line.split()[0])
-
+from pprint import pprint
 
 def reconstructLine(msgList):
     """
@@ -87,6 +87,7 @@ class MOOSalog(object):
             self.outFileLoc = outf
             self.outFile = open(self.outFileLoc, 'w') # overwrites existing file (if any)
             self.outData = dict() # leave empty until told otherwise
+            self.outData_temp = None
     
 
     def closefiles(self):
@@ -189,7 +190,6 @@ class MOOSalog(object):
             """
             from scipy.interpolate import interp1d
             import time
-            from pprint import pprint
             from numpy import linspace, floor
             from decimal import getcontext, Decimal
 
@@ -199,6 +199,7 @@ class MOOSalog(object):
             stamp = ''.join(['%% The following was created by alog_manip.MOOSalog.increaseFreq on ', now])
             increase_msg = ''.join(['%% Resultant Frequency: ',str(desHz),' Hz'])
             # hiHz = {}
+            self.outData = {} # erase pre-existing dict
             self.outData['header'] = [stamp,increase_msg,'%%%%'] + self.srcData['header']
 
             # global sens, meas, dat # reexamine this later
@@ -228,10 +229,6 @@ class MOOSalog(object):
                             # this_time = int(new_times[m]*100000)/100000 # 5 decimal places in timstamp
                             self.outData[sens][meas][rounded_times[m]] = new_values[m]
 
-            def write_msgs():
-                """puts outData dict to outFile in chronological order"""
-
-
             # go thru and pull out dictionaries {time: value} then send to interpolation func
             for sens in self.srcData:
                 if sens is not 'header':
@@ -243,7 +240,64 @@ class MOOSalog(object):
                             self.outData[sens][meas] = dat # only 1 data point, no interp
                         else:
                             create_msgs()
-            write_msgs() #put it out to the file
+
+
+    def find_t0(self):
+        """finds the earliest time in outData_temp"""
+        if self.outData_temp is None:
+            self.outData_temp = self.outData
+            wasnone = True
+        t0 = None
+        for sens in self.outData_temp:
+            for meas in self.outData_temp[sens]:
+                t0_thismeas = sorted(self.outData_temp[sens][meas])[0]
+                if t0 is None:
+                    t0 = t0_thismeas # if this is the first iter, just use lowest value
+                elif t0 > t0_thismeas:
+                    t0 = t0_thismeas
+        if wasnone:
+            self.outData_temp = None
+        return t0
+
+
+    def get_t0_msgs(self):
+        """returns a list of msg lists in the format accepted by reconstructLine which are stamped with the t0
+        """
+        if self.outData_temp is None:
+            self.outData_temp = copy.deepcopy(self.outData)
+            wasnone = True
+        t0 = self.find_t0()
+        t0_msglist = []
+        for sens in self.outData_temp:
+            for meas in self.outData_temp[sens]:
+                if t0 in self.outdata_temp[sens][meas]:
+                    value = pop(self.outdata_temp[sens][meas][t0])
+                    msg = [str(t0), sens, meas, str(value)]
+                    t0_msglist.append(msg)
+        if wasnone:
+            self.outData_temp = None
+
+
+    def get_sorted_msglist(self):
+
+    # def chronologize(self):
+    #     """time-order"""
+    #     self.outData_temp = copy.deepcopy(self.outData) # want non-referenced
+    #     msgs = []
+    #     for sens in self.outData:
+    #         for meas in self.outData[sens]:
+    #             times = sorted(self.outData[sens][meas]):
+    #             valus = []
+    #             for time in times:
+    #                 valus.append = self.outData[sens][meas][time]
+    #                 msgs.append([str(time), sens, meas, str(valu)])
+    #     return msgs
+
+
+    #     sens_firsts = getSensFirsts()
+    #     pprint(sens_firsts)
+
+
 
 ###############################################################################################
 ############ All code below not yet updated to new object oriented implementation #############
