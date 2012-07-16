@@ -13,12 +13,6 @@ hi_file = '/home/gavlab/alog_Files/short_hiHz.alog'
 desHz = 3
 alog = MOOSalog(lo_file, hi_file)
 alog.increaseFreq(desHz)
-
-print('source Data:')
-pprint(alog.srcData)
-print('\n\n\noutput Data:')
-pprint(alog.outData)
-print('\n\n\n\n\n')
-
-# msg_list = alog.chronologize()
-# pprint(msg_list)
+alog.makeChronList()
+alog.writeChronListToFile()
+alog.closefiles()

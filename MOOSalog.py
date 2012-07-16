@@ -17,6 +17,9 @@ Python v2.7.3, using Ubuntu Precise (12.04)
 #     return float(line.split()[0])
 from pprint import pprint
 
+################################################################################
+##### Non - Class Files Used ###################################################
+
 def reconstructLine(msgList):
     """
     INPUT msgList is a python list of length 4:
@@ -49,7 +52,7 @@ def reconstructLine(msgList):
     if len(meas) >= measSpc:
         meas_short_enough = False
     if len(sens) >= sensSpc:
-        sens_short_enough
+        sens_short_enough = False
 
     line = time
     if time_short_enough:
@@ -70,11 +73,16 @@ def reconstructLine(msgList):
     return line
 
 
+################################################################################
+################################################################################
+
 class MOOSalog(object):
     """
     MOOSalog class
         inputs: src     => '/path/to/alog/source'
                 outf    => '/path/to/resultant/alog'
+
+    Ensure that there are no empty lines in the source file
     """
     def __init__(self, srcf, outf=None):
         super(MOOSalog, self).__init__()
@@ -93,10 +101,6 @@ class MOOSalog(object):
     def closefiles(self):
         self.srcFile.close()
         self.outFile.close()
-
-
-    # def empty(self):
-        # pass
 
 
     def setOutFile(self, outf):
@@ -178,125 +182,118 @@ class MOOSalog(object):
         # src.close()
         # tgt.close()
 
-
+    ############################################################################
+    ##### Functions to increase measage frequency ##############################
     def increaseFreq(self, desHz):
-            """
-            Given a dictionary of alog data, increases message frequency to scpecified rate via interpolation
-            ***Assume all msgs occur in chronological order***
-
-            linearly adds data between supplied datapoints - no recalculating given data
-                -note this function created to have smoother visualizations from alog data, not to be used in any mathematical calculations (yet)
-            yields time to 3 decimal places
-            """
-            from scipy.interpolate import interp1d
-            import time
-            from numpy import linspace, floor
-            from decimal import getcontext, Decimal
-
-            if desHz > 1000: # set max freq here 
-                raise ValueError('Max Frequency is 1000 (3 decimal places)')
-            now = time.asctime(time.localtime(time.time()))    
-            stamp = ''.join(['%% The following was created by alog_manip.MOOSalog.increaseFreq on ', now])
-            increase_msg = ''.join(['%% Resultant Frequency: ',str(desHz),' Hz'])
-            # hiHz = {}
-            self.outData = {} # erase pre-existing dict
-            self.outData['header'] = [stamp,increase_msg,'%%%%'] + self.srcData['header']
-
-            # global sens, meas, dat # reexamine this later
-
-            def create_msgs():
-                """ Puts interpolated data into dict outData
-                Primary interpolation function for increaseFreq
-                Consider using uniaxial spline --> would have one function for all of dictionary dat
-                """
-                getcontext().prec = 3 # will round to 3 decimal places
-                orig_times = sorted(dat)
-                for n in range(len(dat) - 1):
-                    linfun = interp1d([orig_times[n], orig_times[n+1]], \
-                                      [dat[orig_times[n]], dat[orig_times[n+1]]])
-                    dt = orig_times[n+1] - orig_times[n] # current
-                    freq = 1/dt # current
-                    if dt < (1/desHz):
-                        print('found instance where Freq already at/above desired Freq')
-                    else:
-                        new_dt = dt*freq/desHz
-                        new_times = linspace(orig_times[n],orig_times[n+1],floor(dt/new_dt))
-                        # print(new_times)
-                        new_values = linfun(new_times)
-                        # rounded_values = [float(Decimal("%.3f" % e)) for e in new_values]
-                        rounded_times = [float(Decimal("%.3f" % e)) for e in new_times]
-                        for m in range(len(rounded_times)):
-                            # this_time = int(new_times[m]*100000)/100000 # 5 decimal places in timstamp
-                            self.outData[sens][meas][rounded_times[m]] = new_values[m]
-
-            # go thru and pull out dictionaries {time: value} then send to interpolation func
-            for sens in self.srcData:
-                if sens is not 'header':
-                    self.outData[sens] = {}
-                    for meas in self.srcData[sens]:
-                        self.outData[sens][meas] = {}
-                        dat = self.srcData[sens][meas]
-                        if len(dat) == 1:
-                            self.outData[sens][meas] = dat # only 1 data point, no interp
-                        else:
-                            create_msgs()
-
-
-    def find_t0(self):
-        """finds the earliest time in outData_temp"""
-        if self.outData_temp is None:
-            self.outData_temp = self.outData
-            wasnone = True
-        t0 = None
-        for sens in self.outData_temp:
-            for meas in self.outData_temp[sens]:
-                t0_thismeas = sorted(self.outData_temp[sens][meas])[0]
-                if t0 is None:
-                    t0 = t0_thismeas # if this is the first iter, just use lowest value
-                elif t0 > t0_thismeas:
-                    t0 = t0_thismeas
-        if wasnone:
-            self.outData_temp = None
-        return t0
-
-
-    def get_t0_msgs(self):
-        """returns a list of msg lists in the format accepted by reconstructLine which are stamped with the t0
         """
-        if self.outData_temp is None:
-            self.outData_temp = copy.deepcopy(self.outData)
-            wasnone = True
-        t0 = self.find_t0()
-        t0_msglist = []
-        for sens in self.outData_temp:
-            for meas in self.outData_temp[sens]:
-                if t0 in self.outdata_temp[sens][meas]:
-                    value = pop(self.outdata_temp[sens][meas][t0])
-                    msg = [str(t0), sens, meas, str(value)]
-                    t0_msglist.append(msg)
-        if wasnone:
-            self.outData_temp = None
+        Given a dictionary of alog data, increases message frequency to scpecified rate via interpolation
+        ***Assume all msgs occur in chronological order***
+
+        linearly adds data between supplied datapoints - no recalculating given data
+            -note this function created to have smoother visualizations from alog data, not to be used in any mathematical calculations (yet)
+        yields time to 3 decimal places
+
+        ### To finalize the calculations afterward: ###
+        # self.makeChronList() # sort by time
+        # self.writeChronListToFile #write to file
+        # self.closefiles() # we're done
+        """
+        from scipy.interpolate import interp1d
+        import time
+        from numpy import linspace, floor
+        from decimal import getcontext, Decimal
+
+        if desHz > 1000: # set max freq here 
+            raise ValueError('Max Frequency is 1000 (3 decimal places)')
+        now = time.asctime(time.localtime(time.time()))    
+        stamp = ''.join(['%% The following created by alog_manip.MOOSalog.MOOSalog.increaseFreq\n%% ', now])
+        increase_msg = ''.join(['%% Resultant Frequency: ',str(desHz),' Hz'])
+        # hiHz = {}
+        self.outData = {} # erase pre-existing dict
+        self.outData['header'] = [stamp,increase_msg,'%%%%'] + self.srcData['header']
 
 
-    def get_sorted_msglist(self):
+        def create_msgs():
+            """ Puts interpolated data into dict outData
+            Primary interpolation function for increaseFreq
+            Consider using uniaxial spline --> would have one function for all of dictionary dat
+            """
+            getcontext().prec = 3 # will round to 3 decimal places
+            orig_times = sorted(dat)
+            for n in range(len(dat) - 1):
+                linfun = interp1d([orig_times[n], orig_times[n+1]], \
+                                  [dat[orig_times[n]], dat[orig_times[n+1]]])
+                dt = orig_times[n+1] - orig_times[n] # current
+                freq = 1/dt # current
+                if dt < (1/desHz):
+                    print('found instance where Freq already at/above desired Freq')
+                else:
+                    new_dt = dt*freq/desHz
+                    new_times = linspace(orig_times[n],orig_times[n+1],floor(dt/new_dt))
+                    # print(new_times)
+                    new_values = linfun(new_times)
+                    # rounded_values = [float(Decimal("%.3f" % e)) for e in new_values]
+                    rounded_times = [float(Decimal("%.3f" % e)) for e in new_times]
+                    for m in range(len(rounded_times)):
+                        # this_time = int(new_times[m]*100000)/100000 # 5 decimal places in timstamp
+                        self.outData[sens][meas][rounded_times[m]] = new_values[m]
 
-    # def chronologize(self):
-    #     """time-order"""
-    #     self.outData_temp = copy.deepcopy(self.outData) # want non-referenced
-    #     msgs = []
-    #     for sens in self.outData:
-    #         for meas in self.outData[sens]:
-    #             times = sorted(self.outData[sens][meas]):
-    #             valus = []
-    #             for time in times:
-    #                 valus.append = self.outData[sens][meas][time]
-    #                 msgs.append([str(time), sens, meas, str(valu)])
-    #     return msgs
+        ## go thru and pull out dictionaries {time: value} then send to interpolation func
+        for sens in self.srcData:
+            if sens is not 'header':
+                self.outData[sens] = {}
+                for meas in self.srcData[sens]:
+                    self.outData[sens][meas] = {}
+                    dat = self.srcData[sens][meas]
+                    if len(dat) == 1:
+                        self.outData[sens][meas] = dat # only 1 data point, no interp
+                    else:
+                        create_msgs()
 
 
-    #     sens_firsts = getSensFirsts()
-    #     pprint(sens_firsts)
+    def makeChronList(self):
+        """use after invoking increaseFreq
+        saves self.outData_temp as 2-layer nested list:
+            [[time, sens, meas, value]
+             [time, sens, meas, value]]
+        list order is chronological - 
+        """
+        from operator import itemgetter
+        ## make list of msg lists in the format accespted by reconstructLine
+        self.outData_temp = [] # this will be in chronological order
+        for sens in self.outData:
+            if sens is not 'header':
+                for meas in self.outData[sens]:
+                    for time in self.outData[sens][meas]:
+                        value = self.outData[sens][meas][time]
+                        thismsg = [time, sens, meas, str(value)] # leave time as float for sorting
+                        self.outData_temp.append(thismsg)
+        self.outData_temp.sort(key=itemgetter(0)) # sort by first index
+        for msg in self.outData_temp: # now we can make time a string
+            msg[0] = str(msg[0])
 
+
+
+
+    def writeChronListToFile(self):
+        """uses the output of makeChronList -- outData_temp -- to to generate
+        alog lines with reconstructLine, then writes those to the outFileLoc, 
+        after using the header from outData
+        """
+        ## write header
+        for header_line in self.outData['header']:
+            self.outFile.write(header_line + '\n')
+        ##loop through each msg list
+        for msg_list in self.outData_temp:
+            ## create line
+            msg_line = reconstructLine(msg_list)
+            ## write to file
+            self.outFile.write(msg_line + '\n')
+
+
+
+##### End increaseFreq-related functions #######################################
+################################################################################
 
 
 ###############################################################################################
