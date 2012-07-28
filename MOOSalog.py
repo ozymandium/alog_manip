@@ -172,6 +172,12 @@ class MOOSalog(object):
             if '%%' in msg:
                 self.srcHeader.append(msg)
             else:
+                msg = msg.split()
+                if msg[3] not in self.srcData: # none from this time yet
+                    self.srcData[msg[3]] = {}
+                if msg[2] not in self.srcData[msg[3]]; # none at this time from this gSensor
+                    self.srcData[msg[3]][msg[2]] = 
+
 
 
 
