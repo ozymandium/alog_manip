@@ -3,3 +3,17 @@ TO DO:
 -implement reconstructLine in all other functions
 
 -replace all loops with scipy optimized iteration tools
+
+- NaN handling
+
+-better timeseries data capabilities
+    -option to structure srcData dictionary by
+        srcData[time][sens][meas] = value
+    -this would require state attributes to determine which architecture the dict is in
+    -then having all existing functions parse accordingly
+
+-have header as an attribute rather than part of the dictionary
+
+-consolidate chronological writing functions and convert to both dict arch's
+
+-

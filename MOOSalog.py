@@ -79,43 +79,63 @@ def reconstructLine(msgList):
 class MOOSalog(object):
     """
     MOOSalog class
-        inputs: src     => '/path/to/alog/source'
+        inputs: srcf    => '/path/to/alog/source'
                 outf    => '/path/to/resultant/alog'
 
     Ensure that there are no empty lines in the source file
+    
+    Class is designed to perform a single function, which populates outData,
+    then be written to file. Subsequent actions require multiple instances.
     """
-    def __init__(self, srcf, outf=None):
+    def __init__(self, srcf=None, outf=None, arch):
+        """
+        inputs: srcf    => '/path/to/alog/source'
+                outf    => '/path/to/resultant/alog'
+                arch    => currently 2 possiblities:
+        """
         super(MOOSalog, self).__init__()
-        self.srcFileLoc = srcf # string
-        self.srcFile = open(self.srcFileLoc, 'rU') # read from source file
-        self.srcData = dict()
-        self.mkdict() # read to self.srcData
-
+        ##File & Data holder inits
+        if srcf is not None:
+            self.srcFileLoc = srcf # string
+            self.srcFile = open(self.srcFileLoc, 'rU') # read from source file
+            self.srcHeader = []
+            self.srcData = dict()
         if outf is not None: # so this is going somewhere.
             self.outFileLoc = outf
             self.outFile = open(self.outFileLoc, 'w') # overwrites existing file (if any)
+            self.outHeader = []
             self.outData = dict() # leave empty until told otherwise
             self.outData_temp = None
-    
+        ##Determine what data holder arch to use
+        if not ((arch=='sens') or (arch=='time')):
+            raise StandardError('arch type incorrect. see docstring')
+        elif arch == 'sens':
+            self.readSrc_bySens
+        elif arch == 'time':
+            self.readSrc_byTime    
+        self.arch = arch
+                    
+
 
     def closefiles(self):
         self.srcFile.close()
         self.outFile.close()
 
 
-    def setOutFile(self, outf):
-        """ closes any existing output file, assigns new string to outFile"""
-        try:
-            self.outFile.close() # close present outfile if exists
-        except: # it don't be there
-            pass
-        self.outFileLoc = outf
-        self.outFile = open(self.outFileLoc, 'w') # overwrites
-        self.outData = dict()
+    # def setOutFile(self, outf):
+    #     """ closes any existing output file, assigns new string to outFile"""
+    #     try:
+    #         self.outFile.close() # close present outfile if exists
+    #     except: # it don't be there
+    #         pass
+    #     self.outFileLoc = outf
+    #     self.outFile = open(self.outFileLoc, 'w') # overwrites
+    #     self.outData = dict()
 
 
-    def mkdict(self):
-        """ Creates dictionary of data upon __init__
+    def readSrc_bySens(self):
+        """ Creates dictionary of source data
+        !! Does not yet support attribute header storage !!
         Dictionary Structure:
             dctn['header']: list of each line containing '%%'
             dctn['gSensor']['zMeasurment'][Time] = value
@@ -139,53 +159,29 @@ class MOOSalog(object):
                 dctn[msg[2]][msg[1]][float(msg[0])] = float(msg[3])
 
 
-    def pullByStr2new(self, desStr): # not tested in OOP
+    def readSrc_byTime(self):
+        """ Creates dictionary of source data
+        sends header to self.srcHeader: list of each line conaining '%%'
+        Dictionary Structure:
+            self.srcData[time]['sens']['meas'] = value
         """
-        finds msgs with a string in meas type or source and creates a separate *.alog file from those msgs
+        if self.arch is not 'time':
+            raise StandardError('Source dictionary achitecture is not "time"')
+        for msg in self.srcFile:
+            msg = msg[0:-2] # remove \n at the end of the string
+            if '%%' in msg:
+                self.srcHeader.append(msg)
+            else:
 
-        INPUTS:
-            alogSrc     ::  ABSOLUTE PATH STRING of source *.alog file
-            alogTgt     ::  ABSOLUTE PATH STRING of desired target *.alog file
-            desStr      ::  messages containing any STRING in this LIST will be copied
 
-        -will overwrite alogTgt if already existing
-        -this function not updated since transition to MOOSalog class
-        """
-        
-        def extractData():
-            """ iterator which finds given data
-            yields msgs in list format which contain a desired string in the source (third) column
-
-                -slave function to pullByStr2new
-
-            src         ::  reader object from source *.alog file
-            desStr      ::  string we're looking for
-            -this function not updated since transition to MOOSalog class
-            """
-            for line in src:
-                line = str(line) # now each line is a string
-                line = line.rstrip()
-                if '%%' in line: #header
-                    yield line
-                for desired in desStr:
-                    if desired in line:
-                        yield line
-
-        src = self.srcFile
-        tgt = self.outFile
-        tgt.write('%% Generated by alog_manip.pullByStr2new\n')
-        for desired in range(len(desStr)):
-            desStr[desired] = ' ' + desStr[desired] + ' '
-            #this keeps things like 'zLat' and 'zLatStdDev' from causing redundancies`
-        for line in extractData():
-            tgt.write(line + '\n')
-        # src.close()
-        # tgt.close()
 
     ############################################################################
     ##### Functions to increase measage frequency ##############################
     def increaseFreq(self, desHz):
         """
+        Note this function designed to work on original sens->meas->time based
+        dictionary architecture.
+
         Given a dictionary of alog data, increases message frequency to scpecified rate via interpolation
         ***Assume all msgs occur in chronological order***
 
@@ -211,7 +207,6 @@ class MOOSalog(object):
         # hiHz = {}
         self.outData = {} # erase pre-existing dict
         self.outData['header'] = [stamp,increase_msg,'%%%%'] + self.srcData['header']
-
 
         def create_msgs():
             """ Puts interpolated data into dict outData
@@ -273,8 +268,6 @@ class MOOSalog(object):
             msg[0] = str(msg[0])
 
 
-
-
     def writeChronListToFile(self):
         """uses the output of makeChronList -- outData_temp -- to to generate
         alog lines with reconstructLine, then writes those to the outFileLoc, 
@@ -290,15 +283,68 @@ class MOOSalog(object):
             ## write to file
             self.outFile.write(msg_line + '\n')
 
-
-
 ##### End increaseFreq-related functions #######################################
 ################################################################################
 
+    def minimizeTimestamps(self):
+        """
+        subtracts the lowest existing timestamp value from all msg times
+        """
+        def get_first_key(dictionary):
+            key0 = sorted(dictionary)[0]
+            return key0
 
-###############################################################################################
-############ All code below not yet updated to new object oriented implementation #############
-###############################################################################################
+        tmin = min() #initial guess
+
+
+    def pullByStr2new(self, desStr): # not tested in OOP
+        """
+        finds msgs with a string in meas type or source and creates a separate *.alog file from those msgs
+
+        INPUTS:
+            alogSrc     ::  ABSOLUTE PATH STRING of source *.alog file
+            alogTgt     ::  ABSOLUTE PATH STRING of desired target *.alog file
+            desStr      ::  messages containing any STRING in this LIST will be copied
+
+        -will overwrite alogTgt if already existing
+        -this function not updated since transition to MOOSalog class
+        """
+        
+        def extractData():
+            """ iterator which finds given data
+            yields msgs in list format which contain a desired string in the source (third) column
+
+                -slave function to pullByStr2new
+
+            src         ::  reader object from source *.alog file
+            desStr      ::  string we're looking for
+            -this function not updated since transition to MOOSalog class
+            """
+            for line in src:
+                line = str(line) # now each line is a string
+                line = line.rstrip()
+                if '%%' in line: #header
+                    yield line
+                for desired in desStr:
+                    if desired in line:
+                        yield line
+
+        src = self.srcFile
+        tgt = self.outFile
+        tgt.write('%% Generated by alog_manip.pullByStr2new\n')
+        for desired in range(len(desStr)):
+            desStr[desired] = ' ' + desStr[desired] + ' '
+            #this keeps things like 'zLat' and 'zLatStdDev' from causing redundancies`
+        for line in extractData():
+            tgt.write(line + '\n')
+        # src.close()
+        # tgt.close()
+
+
+
+################################################################################
+######## All code below not yet updated to new object oriented implementation ##
+################################################################################
 
     def replStr(alogSrc, alogDst, tgtStrs, desStrs):
         """
