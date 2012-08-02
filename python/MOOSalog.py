@@ -86,13 +86,15 @@ class MOOSalog(object):
     
     Class is designed to perform a single function, which populates outData,
     then be written to file. Subsequent actions require multiple instances.
-    """
-    def __init__(self, srcf=None, outf=None, arch):
-        """
-        inputs: srcf    => '/path/to/alog/source'
+    
+    inputs: srcf    => '/path/to/alog/source'
                 outf    => '/path/to/resultant/alog'
                 arch    => currently 2 possiblities:
-        """
+                    defaults to srcData[sensor][measurment][time] = value
+                    'time' : srcData[time][sensor][measurment] = value
+    
+    """
+    def __init__(self, srcf=None, outf=None, arch=None):
         super(MOOSalog, self).__init__()
         ##File & Data holder inits
         if srcf is not None:
@@ -106,16 +108,14 @@ class MOOSalog(object):
             self.outHeader = []
             self.outData = dict() # leave empty until told otherwise
             self.outData_temp = None
-        ##Determine what data holder arch to use
-        if not ((arch=='sens') or (arch=='time')):
-            raise StandardError('arch type incorrect. see docstring')
-        elif arch == 'sens':
-            self.readSrc_bySens
-        elif arch == 'time':
-            self.readSrc_byTime    
+        ##Determine what data holder arch to use and read source alog
         self.arch = arch
-                    
-
+        if self.arch == None:
+            self.readSrc_bySens()
+        elif self.arch == 'time':
+            self.readSrc_byTime()  
+        else:
+            raise StandardError('arch type incorrect. see docstring')                    
 
     def closefiles(self):
         self.srcFile.close()
@@ -173,12 +173,15 @@ class MOOSalog(object):
                 self.srcHeader.append(msg)
             else:
                 msg = msg.split()
-                if msg[3] not in self.srcData: # none from this time yet
-                    self.srcData[msg[3]] = {}
-                if msg[2] not in self.srcData[msg[3]]; # none at this time from this gSensor
-                    self.srcData[msg[3]][msg[2]] = 
-
-
+                time = float(msg[0])
+                meas = msg[1]
+                sens = msg[2]
+                valu = msg[3]
+                if time not in self.srcData: # none from this time yet
+                    self.srcData[time] = {}
+                if sens not in self.srcData[time]: # none at this time from this gSensor
+                    self.srcData[time][sens] = {}
+                self.srcData[time][sens][meas] = valu # assume only one message per meas from sens at a time
 
 
     ############################################################################
@@ -292,15 +295,26 @@ class MOOSalog(object):
 ##### End increaseFreq-related functions #######################################
 ################################################################################
 
-    def minimizeTimestamps(self):
+    def get_tmin(self):
+        """returns the earliest source data point time.
+        Designed to work with timebased architectures.
         """
-        subtracts the lowest existing timestamp value from all msg times
-        """
-        def get_first_key(dictionary):
-            key0 = sorted(dictionary)[0]
-            return key0
+        tmin = min(sorted(self.srcData.keys()))
+        return tmin
 
-        tmin = min() #initial guess
+
+    def minimizeTimes(self):
+        """subtracts the lowest existing timestamp value from all msg times
+        Designed to work on time-based architectures.
+        relies on get_tmin function.
+        """
+        from copy import deepcopy as dcp
+        tmin = self.get_tmin()
+        for t in self.srcData:       
+            old = dcp(self.srcData[t])
+            new_t = t - tmin
+            self.srcData[new_t] = old
+            del self.srcData[t]
 
 
     def pullByStr2new(self, desStr): # not tested in OOP
