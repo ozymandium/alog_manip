@@ -16,6 +16,7 @@ Python v2.7.3, using Ubuntu Precise (12.04)
 # def getTimeStamp(line):
 #     return float(line.split()[0])
 from pprint import pprint
+import time
 
 ################################################################################
 ##### Non - Class Files Used ###################################################
@@ -165,8 +166,6 @@ class MOOSalog(object):
         Dictionary Structure:
             self.srcData[time]['sens']['meas'] = value
         """
-        if self.arch is not 'time':
-            raise StandardError('Source dictionary achitecture is not "time"')
         for msg in self.srcFile:
             msg = msg[0:-2] # remove \n at the end of the string
             if '%%' in msg:
@@ -313,8 +312,26 @@ class MOOSalog(object):
         for t in self.srcData:       
             old = dcp(self.srcData[t])
             new_t = t - tmin
-            self.srcData[new_t] = old
-            del self.srcData[t]
+            self.outData[new_t] = old
+
+
+    def writeOut(self):
+        """ Writes the output file and closes all open files
+        Time-based architectures only
+        """
+        # import time
+        self.outHeader = self.srcHeader
+        for line in self.outHeader:
+            self.outFile.write(line + '\n')
+        # now = time.asctime(time.localtime(time.time()))
+        # self.outFile.write('%% -- %s -- Written to new alog' % now)
+        for time_s in sorted(self.outData):
+            for sens in self.outData[time_s]:
+                for meas in self.outData[time_s][sens]:
+                    valu = self.outData[time_s][sens][meas]
+                    msg_list = [str(time_s), meas, sens, str(valu)]
+                    line_string = reconstructLine(msg_list)
+                    self.outFile.write(line_string + '\n') 
 
 
     def pullByStr2new(self, desStr): # not tested in OOP
