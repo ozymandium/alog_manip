@@ -18,6 +18,7 @@ Python v2.7.3, using Ubuntu Precise (12.04)
 from pprint import pprint
 import time
 
+
 ################################################################################
 ##### Non - Class Files Used ###################################################
 
@@ -48,6 +49,8 @@ def reconstructLine(msgList):
     sens = msgList[2]
     valu = msgList[3] #keep as string
 
+    time = str(round(float(time), 3))
+    
     if len(time) >= timeSpc:
         time_short_enough = False
     if len(meas) >= measSpc:
@@ -167,7 +170,7 @@ class MOOSalog(object):
             self.srcData[time]['sens']['meas'] = value
         """
         for msg in self.srcFile:
-            msg = msg[0:-2] # remove \n at the end of the string
+            msg = msg[0:-1] # remove \n at the end of the string
             if '%%' in msg:
                 self.srcHeader.append(msg)
             else:
