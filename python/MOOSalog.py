@@ -91,6 +91,8 @@ class MOOSalog(object):
     Class is designed to perform a single function, which populates outData,
     then be written to file. Subsequent actions require multiple instances.
     
+    Time architecture not updated to work with string message values
+
     inputs: srcf    => '/path/to/alog/source'
                 outf    => '/path/to/resultant/alog'
                 arch    => currently 2 possiblities:
@@ -143,8 +145,6 @@ class MOOSalog(object):
         Dictionary Structure:
             dctn['header']: list of each line containing '%%'
             dctn['gSensor']['zMeasurment'][Time] = value
-        Presently assumes that 4th column (value) is convertible to float
-            -need to make it dance with lidar strings
         Note that no newline '\n' is present in data when using later.
         """
         dctn = self.srcData
@@ -160,7 +160,15 @@ class MOOSalog(object):
                     dctn[msg[2]] = {}
                 if msg[1] not in dctn[msg[2]]: # none in this gSource from this zMeas yet
                     dctn[msg[2]][msg[1]] = {}
-                dctn[msg[2]][msg[1]][float(msg[0])] = float(msg[3])
+                try:
+                    dctn[msg[2]][msg[1]][float(msg[0])] = float(msg[3]) # double
+                except ValueError: # it's a string
+                    # dimc = msg[3].split(']')[0].split('x')[1] # cols
+                    # dimr = msg[3].split(']')[0].split('x')[0][1:] # rows
+                    value_s = msg[3].split(']')[1][1:-1].split(',')
+                    dctn[msg[2]][msg[1]][float(msg[0])] = [float(i) for i in value_s]
+                except IndexError: # it's blank
+                    dctn[msg[2]][msg[1]][float(msg[0])] = None # nan better?
 
 
     def readSrc_byTime(self):
